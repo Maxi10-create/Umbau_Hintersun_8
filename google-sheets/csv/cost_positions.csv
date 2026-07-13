@@ -1,0 +1,10 @@
+cost_id,category,subcategory,item,supplier,status,source_type,net,vat_rate,gross,party_assignment,split_key,final,paid,payment_due,document_id,risk
+C-ARCH-001,Techniker,Architekt,Planungsauftrag Klement Architects,Klement Architects,beauftragt,Auftrag,36000,22,45676.80,gemeinsam,thousandths_466_534,TRUE,partly,phasenweise,DOC-ARCH-001,"Statik, SiGeKo, Klimahaus, ENEA, Haustechnik nicht enthalten"
+C-STAT-001,Techniker,Statik,Statik Manuel Troger,Manuel Troger,Angebot/ok,Notiz,3700,22,4514,gemeinsam,thousandths_466_534,FALSE,FALSE,offen,DOC-STATUS-ARCH,Leistung/Abrechnung final pruefen
+C-PSP-001,Buerokratie,Steuerberatung,PSP Beratung erste Rechnung,PSP STP GmbH,bezahlt,Rechnung/Notiz,208,22,253.76,projekt,manual,TRUE,TRUE,2026-04-27,DOC-PSP-001,weitere Beratung optional
+C-GEM-001,Buerokratie,Gemeinde,Sekretariatsgebuehren Durchfuehrungsplan,Gemeinde Natz-Schabs,bezahlt,Zahlung,100,0,100,projekt,manual,TRUE,TRUE,2026-02-24,DOC-STATUS-ARCH,
+C-GEM-002,Buerokratie,Gemeinde,Sekretariatsgebuehren Einreichprojekt,Gemeinde Natz-Schabs,bezahlt/vorgemerkt,Zahlung,250,0,250,projekt,manual,TRUE,TRUE,2026-03-10,DOC-STATUS-ARCH,
+C-KUE-RESCH,Innenausbau,Kueche,Kueche Resch Angebot TS 26_123,Resch Möbel GmbH,Angebot erhalten,Angebot,22442,22,27378,W2,100_w2,FALSE,FALSE,offen,DOC-KUE-RESCH,Maurer/Hydrauliker/Elektriker nicht enthalten
+C-KUE-STAMPFL,Innenausbau,Kueche,Kuecheneinrichtung Stampfl,Stampfl Küche & Wohnen,Angebot erhalten,Angebot,25900,22,31598,W2,100_w2,FALSE,FALSE,offen,DOC-KUE-STAMPFL,"MwSt, Wasseranschluss, Beleuchtung, Gipskarton nicht enthalten"
+C-SIGEKO-001,Techniker,Sicherheitskoordination,Sicherheitskoordination vor Baubeginn,offen,offen,offen,0,22,0,gemeinsam,thousandths_466_534,FALSE,FALSE,vor Baubeginn,DOC-STATUS-ARCH,kritisch fuer Baustart
+C-BLITZ-001,Techniker,Blitzschutz,Blitzschutzberechnung Elektrotechniker,offen,offen,Schaetzung,350,22,427,gemeinsam,thousandths_466_534,FALSE,FALSE,vor Baukonzession,DOC-STATUS-ARCH,benoetigt fuer Baukonzession laut Notiz

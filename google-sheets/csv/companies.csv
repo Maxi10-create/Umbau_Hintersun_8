@@ -1,0 +1,22 @@
+company_id,trade_id,company,contact,status,offer_id,final,comment
+COMP-FELDERER,TR-BAU,Felderer Bau,,Liste,,FALSE,
+COMP-WIDMANN,TR-BAU,Widmann Bau,,Liste,,FALSE,
+COMP-ARNOLD,TR-BAU,Arnold Bau,,Liste,,FALSE,
+COMP-SALCHER,TR-BAU,Salcher Bau,,Liste,,FALSE,Schallschutz pruefen
+COMP-WOLF,TR-FEN,Wolf,,Liste,,FALSE,
+COMP-TIPTOP,TR-FEN,TipTop,,Liste,,FALSE,
+COMP-STFEN,TR-FEN,Suedtirol Fenster,,Liste,,FALSE,
+COMP-SILGONER,TR-ZIM,Silgoner,,Liste,,FALSE,
+COMP-BODNER,TR-ZIM,Bodner,,Liste,,FALSE,
+COMP-OBERRAUCHZ,TR-ZIM,Oberrauch,,Liste,,FALSE,
+COMP-BRUGGER,TR-ZIM,Brugger Holzbau,,Liste,,FALSE,
+COMP-OBERRAUCHS,TR-SPEN,Oberrauch,,Liste,,FALSE,
+COMP-DORFMANN,TR-SPEN,Dietmar Dorfmann,,Liste,,FALSE,
+COMP-PUTZER,TR-SPEN,Putzer Hubert,,Liste,,FALSE,
+COMP-STAMPFLSPEN,TR-SPEN,Stampfl,,Liste,,FALSE,
+COMP-THALER,TR-HLS,Thaler,,Liste,,FALSE,Bestandsheizung/Installateur
+COMP-STAMPFLBR,TR-ELT,Stampfl Brunner,,Liste,,FALSE,
+COMP-KREITHNER,TR-SCHL,Kreithner,,Liste,,FALSE,
+COMP-GAMPER,TR-SCHL,Gamper Guenther,,Liste,,FALSE,
+COMP-PLOSE,TR-SCHL,Plosemetall,,Liste,,FALSE,
+COMP-ROGEN,TR-MAL,Rogen Martin,,Liste,,FALSE,

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Umbau Hintersun 8 Dashboard</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><div class="logo-badge">H8</div><div><h1>Umbau Hintersun 8</h1><small>Projekt-Cockpit</small></div></div>
+    <nav class="nav">
+      <button class="active" data-tab="tab-overview"><span class="dot"></span>Überblick</button>
+      <button data-tab="tab-project"><span class="dot"></span>Projekt &amp; Parteien</button>
+      <button data-tab="tab-costs"><span class="dot"></span>Kosten &amp; Finanzierung</button>
+      <button data-tab="tab-time"><span class="dot"></span>Zeitplan &amp; Aufgaben</button>
+      <button data-tab="tab-trades"><span class="dot"></span>Gewerke &amp; Firmen</button>
+      <button data-tab="tab-energy"><span class="dot"></span>Energie &amp; Technik</button>
+      <button data-tab="tab-scenarios"><span class="dot"></span>Szenarien &amp; Entscheidungen</button>
+      <button data-tab="tab-docs"><span class="dot"></span>Dokumente</button>
+    </nav>
+    <div class="side-note"><strong>Datenquelle</strong><br><span id="source-pill"><span class="status-dot"></span>Laden...</span><br><br>Backend: Google Sheets via Apps Script. CRUD schreibt direkt ins Sheet.</div>
+  </aside>
+  <main class="main">
+    <section id="tab-overview" class="tab active">
+      <div class="topbar"><div><h2 data-eyebrow="Cockpit">Überblick</h2><p>Zentraler Status für Projekt, Kosten, Finanzierung, Energie und nächste Schritte.</p></div><span class="pill">Projekt: Umbau Hintersun 8</span></div>
+      <div class="grid kpi">
+        <div class="card kpi-card"><div class="kpi-label">Aufgabenfortschritt</div><div class="kpi-value" id="kpi-progress">–</div><div class="kpi-sub" id="kpi-progress-sub">–</div></div>
+        <div class="card kpi-card"><div class="kpi-label">Kostenprognose</div><div class="kpi-value" id="kpi-cost">–</div><div class="kpi-sub" id="kpi-cost-sub">–</div></div>
+        <div class="card kpi-card"><div class="kpi-label">Finanzierungslücke</div><div class="kpi-value" id="kpi-finance">–</div><div class="kpi-sub" id="kpi-finance-sub">–</div></div>
+        <div class="card kpi-card"><div class="kpi-label">Strom-Autarkie</div><div class="kpi-value" id="kpi-energy">–</div><div class="kpi-sub" id="kpi-energy-sub">–</div></div>
+      </div>
+      <div class="grid two" style="margin-top:16px">
+        <div class="card"><h3>Projektampel</h3><div id="overview-summary"></div><div class="chart-box small"><canvas id="chart-progress"></canvas></div></div>
+        <div class="card"><h3>Nächste kritische Aufgaben</h3><div id="overview-next"></div></div>
+      </div>
+      <div class="grid two" style="margin-top:16px"><div class="card"><h3>Prognose nach Budgetblock</h3><div class="chart-box"><canvas id="chart-costs"></canvas></div></div><div class="card"><h3>Finanzierungsbausteine</h3><div class="chart-box"><canvas id="chart-finance"></canvas></div></div></div>
+    </section>
+
+    <section id="tab-project" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Stammdaten">Projekt &amp; Parteien</h2><p>Stammdaten, W1/W2, Tausendstel und Standard-Aufteilungsschlüssel.</p></div></div>
+      <div class="grid two"><div class="card"><h3>Wohnungen &amp; Tausendstel</h3><div id="party-table"></div></div><div class="card"><h3>Planbilder</h3><div class="image-grid"><img src="assets/img/lageplan_endstand.jpg"><img src="assets/img/grundrisse_endstand.jpg"><img src="assets/img/ansichten_schnitte_endstand.jpg"><img src="assets/img/kubatur_endstand.jpg"></div><p class="source">Bilder sind Ausschnitte aus den Planunterlagen. Original-PDFs im Dokumentenregister/Drive.</p></div></div>
+    </section>
+
+    <section id="tab-costs" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Budget &amp; Vergabe">Kosten, Angebote &amp; Finanzierung</h2><p>Gestufte Kostenlogik: Schätzung → Angebot → Auftrag → Rechnung → Zahlung. Prognose ohne Doppelzählung.</p></div></div>
+      <div id="cost-finance-summary"></div>
+      <div class="card" style="margin-top:16px"><h3>Budgetblöcke (gestuft)</h3><div id="budget-blocks"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Angebote</h3><div id="offers-table"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Angebotsvergleich</h3><div id="compare-groups" class="compare-grid"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Kostenpositionen</h3><div id="cost-positions-table"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Kostenschätzungen (versioniert)</h3><div id="budget-estimates-table"></div></div>
+      <div id="finance-detail" style="margin-top:16px"></div>
+      <div class="grid two" style="margin-top:16px">
+        <div class="card"><h3>Finanzierung</h3><div id="financing-table"></div></div>
+        <div class="card"><h3>Bankangebote</h3><div id="bank-offers-table"></div></div>
+      </div>
+      <div class="grid two" style="margin-top:16px">
+        <div class="card"><h3>Förderungen</h3><div id="subsidies-table"></div></div>
+        <div class="card"><h3>Zahlungen</h3><div id="payments-table"></div></div>
+      </div>
+    </section>
+
+    <section id="tab-time" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Terminplan">Zeitplan &amp; Aufgaben</h2><p>Echter Gantt-Zeitstrahl. Baubeginn ist setzbar und aktuell nur voraussichtlich September 2026.</p></div></div>
+      <div class="card"><h3>Zieltermine</h3><div class="controls"><div class="field"><label>Voraussichtlicher Baubeginn</label><input id="build-date" type="date"></div><div class="field"><label>Erster Bezug / Fertigstellung</label><input id="occupancy-date" type="date"></div><div class="field"><label>Filter</label><select id="gantt-filter"><option value="">alle</option><option>kritisch</option><option>hoch</option><option>Grundlagen</option><option>Buerokratie</option><option>Planung</option><option>Ausschreibung</option><option>Bau</option></select></div></div></div>
+      <div class="card" style="margin-top:16px"><h3>Gantt-Zeitstrahl</h3><div id="gantt"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Aufgabenliste</h3><div id="tasks-table"></div></div>
+    </section>
+
+    <section id="tab-trades" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Vergabe">Gewerke &amp; Firmen</h2><p>Gewerke, Firmenliste, Angebotsstatus und kritische Pfade vor Baubeginn.</p></div></div>
+      <div class="grid two"><div class="card"><h3>Gewerke-Status</h3><div id="trades-table"></div></div><div class="card"><h3>Firmenliste</h3><div id="companies-table"></div></div></div>
+      <div class="card" style="margin-top:16px"><h3>Originalnotiz Ausschreibungen</h3><img class="hero-img" src="assets/img/ausschreibungen_gewerke.jpeg" alt="Ausschreibungen Gewerke"></div>
+    </section>
+
+    <section id="tab-energy" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Haustechnik">Energie &amp; Technik</h2><p>PV nur SW-Giebeldach, Pellet als Übergang, WP 5–12 kW. Alles reagiert live auf die Parameter.</p></div>
+        <div class="field" style="min-width:210px"><label>Szenario</label><select id="energy-scenario"><option>Pellet + WP</option><option>nur WP</option><option>autarkieoptimiert</option><option>winteroptimiert</option></select></div></div>
+      <div id="energy-summary"></div>
+      <div class="grid two" style="margin-top:16px"><div class="card"><h3>Monatsbilanz PV vs. Last</h3><div class="chart-box"><canvas id="chart-month"></canvas></div></div><div class="card"><h3>Monatsautarkie</h3><div class="chart-box"><canvas id="chart-autarky"></canvas></div></div></div>
+      <div class="grid two" style="margin-top:16px"><div class="card"><h3>Energiebilanz</h3><div class="chart-box"><canvas id="chart-energy"></canvas></div></div><div class="card"><h3>Batterie-Sättigung</h3><div class="chart-box"><canvas id="chart-battery"></canvas></div></div></div>
+      <div class="card" style="margin-top:16px"><h3>Energieparameter (editierbar)</h3><div id="energy-inputs-table"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Standort/Sonne</h3><img class="hero-img" src="assets/img/sonnenverlauf_standort.png"></div>
+    </section>
+
+    <section id="tab-scenarios" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Weichenstellungen">Szenarien &amp; Entscheidungen</h2><p>Energie-Szenarienvergleich und offene Entscheidungen mit Deadline.</p></div></div>
+      <div class="card"><h3>Szenarienvergleich</h3><div id="scenarios-table"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Offene Entscheidungen</h3><div id="decisions-table"></div></div>
+    </section>
+
+    <section id="tab-docs" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Register">Dokumente &amp; Quellen</h2><p>Dokumentenregister. Drive-Links werden hier gepflegt und ins Google Sheet geschrieben.</p></div></div>
+      <div class="card"><h3>Dokumentenregister</h3><div id="docs-table"></div></div>
+    </section>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/sample-data.js"></script>
+<script src="assets/js/data-adapter.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/calculations.js"></script>
+<script src="assets/js/forms.js"></script>
+<script src="assets/js/gantt.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

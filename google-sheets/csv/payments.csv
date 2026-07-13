@@ -1,0 +1,5 @@
+payment_id,date,supplier,amount_gross,paid_by,related_cost_id,status,document_id,comment
+PAY-GEM-20260224,2026-02-24,Gemeinde Natz-Schabs,100,Maximilian Hofer,C-GEM-001,bezahlt,DOC-STATUS-ARCH,Durchfuehrungsplan Sekretariatsgebuehren
+PAY-GEM-20260310,2026-03-10,Gemeinde Natz-Schabs,250,Maximilian Hofer,C-GEM-002,bezahlt/vorgemerkt,DOC-STATUS-ARCH,Einreichprojekt Sekretariatsgebuehren
+PAY-PSP-20260427,2026-04-27,PSP STP GmbH,253.76,Ingrid Harder,C-PSP-001,bezahlt,DOC-STATUS-BUER,erste PSP Rechnung
+PAY-ARCH-20260427,2026-04-27,Klement Architects,22208.25,Ingrid Harder,C-ARCH-001,bezahlt/Pruefen,DOC-STATUS-ARCH,"erste Honorarzahlung laut Statusnotiz, Betrag bitte pruefen"

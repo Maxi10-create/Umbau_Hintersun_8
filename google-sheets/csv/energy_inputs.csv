@@ -1,0 +1,8 @@
+input_id,module,name,value,unit,editable,source,comment
+E-PV-001,PV,PV nur SW-Giebeldach,TRUE,,FALSE,Nutzerentscheidung,Carport und Gegenseite ausgeschlossen
+E-PV-002,PV,PVGIS Ertrag,1296.61,kWh/kWp/a,FALSE,PVGIS Bericht,"1kWp, 14% Verlust, berechneter Horizont"
+E-PV-003,PV,Nutzbare Dachflaeche,32,m2,TRUE,Berechnung 42m2 - 10m2 Abzug,"Arbeitswert, CAD pruefen"
+E-WP-001,WP,Wärmepumpe Default,8.5,kW,TRUE,Arbeitsoptimum,Regler 5-12 kW
+E-BAT-001,Batterie,Batterie Default,12,kWh,TRUE,Dashboard Empfehlung,sinnvoller Rahmen ca. 10-14 kWh
+E-PEL-001,Pellet,Pellet Leistung,10.2,kW_th,FALSE,Pelletsanlage_Doc,Bestandsanlage
+E-PEL-002,Pellet,Pellet Wirkungsgrad,92.8,%,FALSE,Pelletsanlage_Doc,

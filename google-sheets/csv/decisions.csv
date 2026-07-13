@@ -1,0 +1,8 @@
+decision_id,area,decision,options,recommendation,status,priority,deadline,depends_on,cost_impact,energy_impact,comment
+DEC-TREPPE,Treppen,Holztreppe EG -> 1. OG erhalten oder ersetzen,erhalten|ersetzen|betonieren,Baumeister/Statik/Kosten pruefen,offen,hoch,vor Baumeistervergabe,Architektur/Kosten/Baumeister,mittel-hoch,gering,
+DEC-FEN-EG,Fenster,EG-Fenster ersetzen oder Bestand belassen,ersetzen|bestand behalten,Klimahaus-Nachweis und Einsparpotenzial 40-50k pruefen,offen,hoch,vor Klimahaus/Fensterausschreibung,"Klimahaus, Zustand Bestand",hoch,hoch,
+DEC-LUEFTUNG,Lueftung,zentrale oder dezentrale Lueftung W2,zentral|dezentral|keine,Haustechnik/Klimahaus abklaeren,offen,hoch,vor HLS-Angebot,Haustechnik/Energieeffizienz,mittel,mittel,
+DEC-WP,Heizung,WP sofort oder WP-ready mit Pellet als Uebergang,mit Pellet Uebergang|ohne Pellet Ziel|WP sofort,WP auf Endzustand ohne Pellet auslegen,offen,hoch,vor HLS/Elektro/PV,"Heizlast, HLS, PV",hoch,hoch,
+DEC-PV,Elektro/PV,PV-Groesse auf SW-Dach,max Dach|reduziert|spaeter,"maximal sinnvolle SW-Dachflaeche, Dachfenster abziehen",offen,hoch,vor Elektriker/PV-Angebot,"Dachflaeche, Statik, Energiebedarf",mittel,hoch,
+DEC-BAT,Elektro/Batterie,Batteriespeicher ja/nein und kWh,0|8|10|12|14|16,10-14 kWh pruefen,offen,mittel,vor PV/Elektrovergabe,PV-Konzept/Budget,mittel,mittel,
+DEC-KUECHE,Innenausbau,Kueche Resch oder Stampfl,Resch|Stampfl|weiteres Angebot,"Preis/Leistung vergleichen, Anschluesse frueh fixieren",offen,mittel,vor Elektro/Hydraulik-Installationsplan,Kuechenplanung,mittel,gering,

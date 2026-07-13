@@ -1,0 +1,9 @@
+finance_id,party,type,amount,interest_rate,term_years,status,source,comment
+FIN-W1-COST,Ingrid Harder / W1,Grobkosten,160000,0,0,Arbeitsannahme,Status_Buero(kratie)_20260711.pdf,vorlaeufige Grobkosten
+FIN-W2-COST,Maximilian Hofer / W2,Grobkosten,460000,0,0,Arbeitsannahme,Status_Buero(kratie)_20260711.pdf,vorlaeufige Grobkosten
+FIN-W1-EK,Ingrid Harder / W1,Eigenkapital,50000,0,0,geplant,Status_Buero(kratie)_20260711.pdf,
+FIN-W2-EK,Maximilian Hofer / W2,Eigenkapital,70000,0,0,geplant,Status_Buero(kratie)_20260711.pdf,
+FIN-W1-SUB,Ingrid Harder / W1,Landesfoerderung,40000,0,0,erwartet,Status_Buero(kratie)_20260711.pdf,Foerderung noch nicht gesichert
+FIN-W2-SUB,Maximilian Hofer / W2,Landesfoerderung,28000,0,0,erwartet,Status_Buero(kratie)_20260711.pdf,bei Wohnsitzverlegung ggf. anders
+FIN-ZDL,Maximilian Hofer / W2,Zinsbeguenstigtes Darlehen,250000,2.75,25,offen,Status_Buero(kratie)_20260711.pdf,"bis 250.000 EUR, var. 2,75%, fix 4%, Rueckverguetung bis 2.400 EUR/a fuer 10 Jahre laut Notiz"
+FIN-REST,Projekt,Bankkredit normal / Restbedarf,182000,4.0,25,offen,Berechnung aus Grobkosten,Restlicher Kreditbedarf nach ZDL Arbeitsannahme

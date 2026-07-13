@@ -1,0 +1,2 @@
+log_id,timestamp,user,action,sheet,row_id,details
+LOG-SEED-001,2026-07-11T15:25:39Z,system,seed,all,,Initiale Paketdaten aus Projektunterlagen und Notizen

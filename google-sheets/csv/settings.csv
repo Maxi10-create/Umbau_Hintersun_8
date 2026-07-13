@@ -1,0 +1,40 @@
+key,value,unit,source,editable,comment
+project_name,Umbau Hintersun 8,,Projektvorgabe,FALSE,Name fuer Dashboard und GitHub-Projekt
+project_start,2025-07-30,date,Status_Architekt_20260711.pdf,TRUE,Erstbesprechung Architekt
+target_construction_start,2026-09-01,date,Status_Architekt_20260711.pdf,TRUE,"Vorlaeufiger Baubeginn September 2026, im Dashboard setzbar"
+target_first_occupancy,2027-06-30,date,Annahme,TRUE,Erster Bezug/Fertigstellung frei setzbar
+construction_start_status,vorlaeufig,,Annahme,TRUE,noch nicht bestaetigt
+vat_rate_default,22,%,Annahme Italien,TRUE,Default MwSt.
+contingency_rate,12,%,Annahme,TRUE,Reserve fuer offene Kosten
+thousandths_w1,466,/1000,Tausendstelltabelle 04.06.2026,FALSE,W1/Ingrid
+thousandths_w2,534,/1000,Tausendstelltabelle 04.06.2026,FALSE,W2/Maximilian
+area_w1,81,m2,Einreichplanung,FALSE,Wohnung W1
+area_w2,95,m2,Einreichplanung,FALSE,Wohnung W2
+gross_volume,694.82,m3,Einreichplanung/Kubatur,FALSE,oberirdische Kubatur Endstand
+building_height_mean,8.98,m,Einreichplanung/Kubatur,FALSE,mittlere Gebaeudehoehe
+latitude,46.754,deg,PVGIS/Sonnenstandort,FALSE,Natz/Hintersun
+longitude,11.678,deg,PVGIS/Sonnenstandort,FALSE,Natz/Hintersun
+altitude,897,m,Sonnenstandort Screenshot,FALSE,Hoehe am Standort
+pvgis_yield_per_kwp,1296.61,kWh/kWp/a,PVGIS 1kWp Bericht,FALSE,"PVGIS-SARAH3, berechneter Horizont, 14% Systemverlust"
+pvgis_tilt_opt,42,deg,PVGIS 1kWp Bericht,FALSE,optimale Neigung
+pvgis_azimuth_opt,-4,deg,PVGIS 1kWp Bericht,FALSE,PVGIS Azimut opt.
+pv_roof_gross_sw,42,m2,Arbeitsannahme aus Plan/Dach,TRUE,Brutto SW-Giebeldach; final aus CAD pruefen
+pv_roof_deduction_obstacles,10,m2,Dachfenster/Rand/Hindernisse,TRUE,"Dachfenster, Randabstand, Wartung, Hindernisse"
+pv_power_density,0.225,kWp/m2,Annahme 450Wp/2m2,TRUE,Leistungsdichte moderner Module
+pv_system_loss,14,%,PVGIS Bericht,TRUE,Systemverluste
+alperia_energy_price,0.10494,EUR/kWh,Strom_Alperia_Doc.pdf,TRUE,Energiepreis Anteil laut Mail/Vertrag
+alperia_fixed_fee,86.20,EUR/a,Strom_Alperia_Doc.pdf,TRUE,reduzierte fixe CVS-Gebuehr
+grid_price_all_in,0.30,EUR/kWh,Annahme,TRUE,effektiver Netzstrompreis fuer PV-Wirtschaftlichkeit
+current_annual_electricity_cost,1279.06,EUR/a,Strom_Alperia_Doc.pdf/Notiz,TRUE,aktueller Jahresbetrag laut Notiz
+pellet_boiler_model,Guntamatic THERM 10 Flex,,Pelletsanlage_Doc.pdf,FALSE,Bestandsanlage
+pellet_install_year,2013,year,Pelletsanlage_Doc.pdf,FALSE,Anlage ca. 13 Jahre alt in 2026
+pellet_boiler_power,10.2,kW_th,Pelletsanlage_Doc.pdf,FALSE,Nennleistung
+pellet_efficiency,92.8,%,Pelletsanlage_Doc.pdf,FALSE,Kesselwirkungsgrad
+pellet_heating_value,4.8,kWh/kg,Annahme Standard Pellets,TRUE,Heizwert fuer kg-Berechnung
+pellet_aux_power,200,kWh/a,Annahme,TRUE,Hilfsstrom Pelletanlage
+climate_zone,F,,Pelletsanlage_Doc.pdf,FALSE,Klimazone
+heating_degree_days,3637,HDD,Pelletsanlage_Doc.pdf,FALSE,Gradi giorno
+design_outdoor_temp,-18,C,Pelletsanlage_Doc.pdf,FALSE,Auslegungs-Aussentemperatur
+heat_pump_default_kw,8.5,kW,Dashboard-Optimum Arbeitsannahme,TRUE,WP Default 5-12kW
+heat_pump_flow_temp,38,C,Annahme,TRUE,Vorlauftemperatur
+battery_default_kwh,12,kWh,Dashboard-Empfehlung,TRUE,sinnvoller Startbereich 10-14kWh

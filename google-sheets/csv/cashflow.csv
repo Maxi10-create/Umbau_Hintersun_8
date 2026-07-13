@@ -1,0 +1,5 @@
+cashflow_id,date,phase,party,category,expected_outflow,expected_inflow,funding_source,status,linked_cost_id,comment
+CF-PLAN-001,2026-04-27,Planung,Ingrid Harder,Architekt,22208.25,0,Eigenkapital Ingrid,bezahlt/pruefen,C-ARCH-001,erste Honorarzahlung laut Statusnotiz; Betrag bitte pruefen
+CF-FOER-001,2026-07-31,Foerderung/Notar,beide,Notar/Buerokratie,0,0,offen,geplant,,Schenkung und Verpflichtungserklaerung nach Unbedenklichkeit
+CF-BAU-001,2026-09-01,Baubeginn,beide,Baumeister/Anzahlungen,0,0,Kredit/Eigenkapital,Planwert offen,,Baubeginn nur vorlaeufig September 2026; Ausschreibungen abwarten
+CF-ZDL-001,2026-09-30,Finanzierung,Maximilian Hofer,Zinsbeguenstigtes Darlehen,0,250000,ZDL Suedtirol,offen,,"bis 250.000 EUR laut Notizen, Abhaengig von Antrag/Foerderung"

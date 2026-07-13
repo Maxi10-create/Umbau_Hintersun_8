@@ -1,0 +1,4 @@
+scenario,pv_kwp,battery_kwh,heat_pump_kw,pellet_active,grid_kwh,pellet_kg,autarky_percent,annual_energy_cost,comment
+Bestand/Referenz,0,0,0,TRUE,4200,,0,1279,Stromverbrauch aus Kosten geschaetzt
+Mit Pellet Übergang,7.2,12,6,TRUE,,,,,wird im Dashboard berechnet
+Ohne Pellet Ziel,7.2,12,8.5,FALSE,,0,,,wird im Dashboard berechnet

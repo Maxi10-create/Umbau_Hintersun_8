@@ -1,0 +1,12 @@
+trade_id,trade,priority,owner,target_request,target_award,status,blocks_construction_start,comment
+TR-SIGEKO,Sicherheitskoordination,kritisch,Bauherr/Architekt,sofort,vor Baubeginn,offen,TRUE,gesetzlich erforderlich vor Baubeginn
+TR-BAU,Baumeister/Maurer,kritisch,Architekt/Bauherr,sofort,vor September,Ausschreibung offen,TRUE,Hauptgewerk
+TR-FEN,Fenster,hoch,Architekt/Bauherr,bald,vor Ausfuehrung Huelle,Ausschreibung offen,FALSE,EG-Fenster/Klimahaus/Zero-Verglasung/Raffstores klaeren
+TR-ZIM,Zimmerer,hoch,Architekt/Bauherr,bald,vor Dachphase,Ausschreibung offen,FALSE,Dachfenster mit Verschattungsrollos
+TR-SPEN,Spengler,hoch,Architekt/Bauherr,bald,mit Dachplanung,Ausschreibung offen,FALSE,Aluminium-Blechdach empfohlen
+TR-HLS,Hydrauliker/Heizung/Sanitaer,kritisch,Bauherr/Architekt,sofort,vor Technikplanung,Ausschreibung offen,TRUE,"Lueftung, WP, Pellet, Sanitaer"
+TR-ELT,Elektriker,kritisch,Bauherr/Architekt,sofort,vor Technikplanung,Ausschreibung offen,TRUE,"PV, Batterie, KNX, Wallbox, Blitzschutz"
+TR-SCHL,Schlosser,mittel,Architekt/Bauherr,nach Detailplanung,vor Carport/Gelaender,Ausschreibung offen,FALSE,Carport Stahlkonstruktion empfohlen
+TR-BODEN,Bodenbeläge,mittel,Bauherrin,spaeter,vor Innenausbau,Eigenvergabe,FALSE,Balkonbelag und Aufbau klaeren
+TR-MAL,Maler/Gipser,mittel,Bauherr/Architekt,spaeter,nach Rohinstallation,Ausschreibung offen,FALSE,Rogen Martin
+TR-TISCH,Tischler/Innentueren,mittel,Bauherrin,spaeter,vor Innenausbau,Eigenvergabe,FALSE,"Innentueren, Tischler"

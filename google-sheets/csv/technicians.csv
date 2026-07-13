@@ -1,0 +1,5 @@
+tech_id,name,role,status,cost_id,included,excluded,contact,comment
+TECH-KLEMENT,Klement Architects,Architekt / Planung / Bauleitung,beauftragt,C-ARCH-001,"Vorprojekt, Einreichung, Ausfuehrung, Ausschreibung, Bauleitung, Abrechnung, Abnahme","Statik, SiGeKo, Klimahaus, ENEA, Haustechnik",info@archklement.it,
+TECH-TROGER,Manuel Troger,Statik,Angebot/ok,C-STAT-001,Statik pruefen,,,3.700 netto laut Statusnotiz
+TECH-CONSALVO,Diego Consalvo,Klimahaus / Sicherheit / Abschreibungen Anfrage,angefragt/offen,,offen,,,Mail an Consalvo laut Statusnotiz
+TECH-PSP,PSP STP GmbH / Wilhelm Obwexer,Steuerberatung,teilweise erledigt,C-PSP-001,Beratung Steuer/Foerderung,weitere Termine/2% Honorar optional,info@psp-bz.it,

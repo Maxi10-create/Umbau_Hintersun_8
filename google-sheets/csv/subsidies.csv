@@ -1,0 +1,4 @@
+subsidy_id,program,party,expected_amount,confirmed_amount,status,deadline,requirements,comment
+SUB-W1-INGRID,Landesfoerderung,Ingrid Harder,40000,0,offen,,"EEVE, Baukonzession, Verpflichtungserklaerung, Unterlagen",kein ZDL laut Notiz
+SUB-W2-MAX,Landesfoerderung,Maximilian Hofer,28000,0,offen,,Wohnsitz/EEVE/Unterlagen,21.800 bis 28.000 je Wohnsitzverlegung laut Notiz
+SUB-ZDL,Zinsbeguenstigtes Darlehen,Maximilian Hofer,250000,0,offen,,Wohnbauförderung/Bauk. Unterlagen,"bis 250k, 2.75%/4%, Rueckverguetung bis 2400 EUR/a"

@@ -1,0 +1,15 @@
+task_id,phase,workstream,task,owner,start_date,due_date,status,priority,progress_weight,depends_on,blocks,linked_cost_id,document_id,comment
+T-ARCH-START,Grundlagen,Architekt,Erstbesprechung Architekt,alle,2025-07-30,2025-07-30,erledigt,mittel,2,,,,DOC-STATUS-ARCH,Projektstart
+T-DP-EINREICH,Buerokratie,Durchfuehrungsplan,Durchfuehrungsplan einreichen,Architekt/Bauherr,2026-02-24,2026-02-24,erledigt,hoch,4,,,C-GEM-001,DOC-STATUS-ARCH,100 EUR bezahlt
+T-EINREICH,Buerokratie,Einreichprojekt,Einreichprojekt abgeben,Architekt,2026-03-04,2026-03-24,erledigt,hoch,5,T-DP-EINREICH,Baukonzession,C-GEM-002,DOC-STATUS-ARCH,Einreichprojekt abgegeben 24.03.2026
+T-UNBED,Buerokratie,Gemeinde/Provinz,Unbedenklichkeitserklaerung erhalten,Gemeinde/Provinz/Notarin,2026-06-12,2026-07-13,wartet auf Dritte,kritisch,7,,"Notar, Schenkung, Verpflichtungserklaerung, Foerderantrag",,DOC-STATUS-BUER,Blockiert Notartermin
+T-EEVE-I,Buerokratie,EEVE,EEVE 2025 Ingrid,Ingrid Harder,2026-07-02,2026-07-02,offen/pruefen,hoch,3,,Foerderantrag,,DOC-STATUS-BUER,Termin laut Notiz
+T-EEVE-M,Buerokratie,EEVE,EEVE 2025 Maximilian,Maximilian Hofer,2026-07-13,2026-07-13,offen/pruefen,hoch,3,,Foerderantrag,,DOC-STATUS-BUER,Termin laut Notiz
+T-NOTAR,Buerokratie,Notar,Schenkung + Verpflichtungserklaerung unterzeichnen,Notarin/Parteien,2026-07-13,2026-07-31,blockiert,kritisch,8,T-UNBED,"Foerderantrag, Umschreibung Baukonzession",,DOC-STATUS-BUER,ab 13. Juli geplant
+T-FOERD,Foerderung,Wohnbaufoerderung,Antrag Wohnbaufoerderung einreichen,Maximilian/Ingrid,2026-07-15,2026-08-15,offen,kritisch,8,"T-NOTAR,T-EEVE-I,T-EEVE-M",Baustart 30 Tage Wartefrist,,DOC-STATUS-BUER,ab Mitte Juli laut Notiz
+T-WAIT30,Foerderung,Wohnbaufoerderung,30 Tage Wartefrist vor Baustart,Projekt,2026-08-15,2026-09-15,offen,kritisch,5,T-FOERD,Baubeginn,,DOC-STATUS-BUER,Nach Antrag/Genehmigung 30 Tage warten laut Notiz
+T-SIGEKO,Planung,Sicherheit,Sicherheitskoordination beauftragen,Bauherr/Architekt,2026-06-08,2026-08-15,offen,kritisch,6,,Baubeginn,C-SIGEKO-001,DOC-STATUS-ARCH,gesetzlich erforderlich vor Baubeginn
+T-BAU-AUSS,Ausschreibung,Baumeister,Baumeister Ausschreibung anfragen,Architekt/Bauherr,2026-06-08,2026-08-01,offen,kritisch,6,,Baubeginn/Kostenplan,,DOC-STATUS-ARCH,"Felderer, Widmann, Arnold, Salcher"
+T-HLS-AUSS,Ausschreibung,Hydrauliker/Heizung,Hydrauliker und HLS-Konzept anfragen,Bauherr/Architekt,2026-06-08,2026-08-01,offen,kritisch,6,,WP/Pellet/PV/Elektroplanung,,DOC-STATUS-ARCH,"Thaler, Heizlast, Lueftung, Sanitaer"
+T-ELT-AUSS,Ausschreibung,Elektriker,Elektriker/PV/Batterie/Wallbox Konzept anfragen,Bauherr/Architekt,2026-06-08,2026-08-01,offen,kritisch,6,,PV/Batterie/WP/KNX Entscheidung,,DOC-STATUS-ARCH,Stampfl Brunner
+T-BAUBEGINN,Bau,Baubeginn,Baubeginn,Projekt,2026-09-01,2026-09-01,Zieltermin vorlaeufig,kritisch,10,"T-WAIT30,T-SIGEKO,T-BAU-AUSS",Bauphase,,DOC-STATUS-ARCH,September 2026 als vorlaeufiges Ziel

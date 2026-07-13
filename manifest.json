@@ -1,0 +1,31 @@
+{
+  "project": "Umbau Hintersun 8",
+  "version": "2.0",
+  "created_at": "2026-07-11T15:25:39Z",
+  "frontend": "docs/index.html",
+  "backend": "google-apps-script/Code.gs",
+  "sheet_template": "google-sheets/Umbau_Hintersun_8_Backend_Template.xlsx",
+  "tabs": [
+    "settings",
+    "parties",
+    "areas",
+    "cost_positions",
+    "offers",
+    "offer_items",
+    "payments",
+    "financing",
+    "bank_offers",
+    "subsidies",
+    "timeline_tasks",
+    "trades",
+    "companies",
+    "bureaucracy",
+    "technicians",
+    "energy_inputs",
+    "energy_results",
+    "documents",
+    "decisions",
+    "cashflow",
+    "audit_log"
+  ]
+}

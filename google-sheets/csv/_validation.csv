@@ -1,0 +1,14 @@
+status,priority,boolean,party_assignment,split_key,financing_type,source_type
+offen,kritisch,TRUE,W1,100_w1,Grobkosten,Plan
+in Vorbereitung,hoch,FALSE,W2,100_w2,Eigenkapital,Dokument
+angefragt,mittel,,gemeinsam,thousandths_466_534,Landesfoerderung,Annahme
+wartet auf Dritte,niedrig,,projekt,50_50,Zinsbeguenstigtes Darlehen,Angebot
+Angebot erhalten,,,manual,manual,Bankkredit,Auftrag
+Rueckfrage offen,,,,,Zwischenfinanzierung,Rechnung
+Entscheidung noetig,,,,,Foerderungsrueckfluss,Zahlung
+final ausgewaehlt,,,,,,berechnet
+beauftragt,,,,,,offen
+blockiert,,,,,,
+erledigt,,,,,,
+bezahlt,,,,,,
+verworfen,,,,,,

@@ -1,0 +1,3 @@
+party_id,name,unit,role,default_split,equity_default,subsidy_default,notes
+P001,Ingrid Harder,W1,Bauherrin / Wohnung A,466,50000,40000,W1 / 466 Tausendstel
+P002,Maximilian Hofer,W2,Wohnung B / Projektkoordination,534,70000,28000,"W2 / 534 Tausendstel, Zugang zinsbeguenstigtes Darlehen pruefen"

@@ -1,0 +1,4 @@
+bank_offer_id,bank,contact,date,party,amount,interest_type,interest_rate,term_years,monthly_rate,status,comment
+BANK-VB-20260503,Volksbank,Katja Gasser,2026-05-03,beide,,offen,,,,angefragt,Kreditangebot beide
+BANK-RAIKA-20260511,Raiffeisenkasse,Christoph Noessing,2026-05-11,Maximilian Hofer,250000,zinsbeguenstigt variabel,2.75,25,,angefragt,Landesgesetz/ZDL laut Notiz
+ZDL-SUEDTIROL,Land Südtirol / ZDL,Wohnbauamt,,Maximilian Hofer,250000,variabel/fix,2.75 / 4.00,einstellbar,berechnet,offen,bis 2.400 EUR/a Rueckverguetung fuer 10 Jahre laut Notiz

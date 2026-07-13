@@ -1,0 +1,7 @@
+bureau_id,area,task,owner,status,deadline,priority,blocks,document_id,comment
+B-UNBED,Gemeinde/Provinz,Unbedenklichkeitserklaerung fuer Wohnbaufoerderungsbindung,Notarin/Gemeinde/Provinz,wartet auf Dritte,2026-07-13,kritisch,"Notar, Schenkung, Verpflichtungserklaerung",DOC-STATUS-BUER,aus Bindung 1999 laut Notiz
+B-NOTAR,Notar,Schenkungsvertrag und Verpflichtungserklaerung,Notarin/Parteien,blockiert,2026-07-31,kritisch,"Foerderantrag, Umschreibung Baukonzession",DOC-STATUS-BUER,Termin ab 13. Juli geplant
+B-EEVE-I,EEVE,EEVE 2025 Ingrid,Ingrid,offen/pruefen,2026-07-02,hoch,Wohnbaufoerderung,DOC-STATUS-BUER,
+B-EEVE-M,EEVE,EEVE 2025 Maximilian,Maximilian,offen/pruefen,2026-07-13,hoch,Wohnbaufoerderung,DOC-STATUS-BUER,
+B-FOERD,Wohnbaufoerderung,Antrag Wohnbaufoerderung einreichen,Parteien,offen,2026-08-15,kritisch,Baustart/30 Tage Wartefrist,DOC-STATUS-BUER,ab Mitte Juli geplant
+B-BAUKONZ,Baukonzession,Baukonzession / Umschreibung auf Maximilian,Architekt/Parteien,offen,,hoch,Foerderung/Baustart,DOC-STATUS-BUER,

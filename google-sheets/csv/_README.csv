@@ -1,0 +1,4 @@
+Umbau Hintersun 8 - Google Sheets Backend
+1,Einfachster Weg: Code.gs in ein leeres Google Sheet kopieren und setupWorkbookWithSeedData() ausführen.
+2,Alternativ: diese CSVs oder die XLSX-Vorlage importieren.
+3,"Tabnamen und Header nicht ändern, sonst passt das Script nicht mehr."
