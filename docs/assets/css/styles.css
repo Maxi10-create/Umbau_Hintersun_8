@@ -278,3 +278,116 @@ textarea{resize:vertical;min-height:66px}
   .image-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===================================================================
+   v3 – Ampel, W1/W2, Gantt-Kategorien, Slider, Baseline-Vergleich
+   =================================================================== */
+
+/* --- Mehrdimensionale Projektampel --- */
+.ampel-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.ampel-overall{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:6px 13px;border-radius:999px;font-weight:600}
+.ampel-overall.ok{background:var(--ok-soft);color:var(--ok)}
+.ampel-overall.warn{background:var(--warn-soft);color:var(--warn)}
+.ampel-overall.danger{background:var(--danger-soft);color:var(--danger)}
+.ampel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.ampel-item{display:flex;gap:11px;align-items:flex-start;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
+.ampel-light{width:14px;height:14px;border-radius:50%;flex:0 0 14px;margin-top:3px;position:relative}
+.ampel-item.ok .ampel-light{background:var(--ok);box-shadow:0 0 0 4px var(--ok-soft)}
+.ampel-item.warn .ampel-light{background:var(--warn);box-shadow:0 0 0 4px var(--warn-soft)}
+.ampel-item.danger .ampel-light{background:var(--danger);box-shadow:0 0 0 4px var(--danger-soft)}
+.ampel-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ampel-text strong{font-size:13px;letter-spacing:.02em}
+.ampel-label{font-size:12.5px;color:var(--ink)}
+.ampel-detail{font-size:11px;color:var(--muted);line-height:1.35}
+
+/* --- W1/W2 farbcodierte Zellen & Split-Card --- */
+.w1cell{color:var(--w1);font-weight:600}
+.w2cell{color:var(--w2);font-weight:600}
+th.w1cell,th.w2cell{font-weight:600}
+.split-card{display:flex;padding:0;overflow:hidden}
+.split-half{flex:1;padding:14px 16px}
+.split-half.w1{background:var(--w1-soft)}
+.split-half.w2{background:var(--w2-soft)}
+.split-half.w1 h4{color:var(--w1)}
+.split-half.w2 h4{color:var(--w2)}
+.split-half .kpi-value{font-size:22px}
+.split-half.w1 .kpi-value{color:var(--w1)}
+.split-half.w2 .kpi-value{color:var(--w2)}
+
+/* --- Budget-Tabelle Baseline/Δ --- */
+.budget-table td.var{font-family:var(--mono);font-size:12px;text-align:right}
+.budget-table td.var.neg{color:var(--danger)}
+.budget-table td.var.pos{color:var(--ok)}
+.section-note{margin-bottom:10px}
+
+/* --- Kategorie-Pills & Swatches --- */
+.cat-swatch{display:inline-block;width:16px;height:16px;border-radius:4px;vertical-align:middle;border:1px solid rgba(0,0,0,.1)}
+.cat-pill{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;color:#fff;background:var(--catcol,#7A8B99)}
+.type-pill{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:2px 8px;border-radius:6px;border:1px solid var(--line)}
+.type-pill.termin{background:var(--accent-soft);color:var(--accent-2)}
+.type-pill.vorgang{background:var(--surface-2);color:var(--muted)}
+
+/* --- Gantt v3: Swimlanes, Kategorien, Meilensteine --- */
+.gantt{font-size:12px}
+.g-head{display:flex;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:2}
+.g-name-head{flex:0 0 210px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 8px}
+.g-months{position:relative;flex:1;display:flex}
+.g-month{font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center;border-left:1px solid var(--line);padding:6px 0}
+.g-month.year-start{border-left:2px solid var(--accent)}
+.g-overlay{position:absolute;inset:0;pointer-events:none}
+.g-lane{margin-top:6px}
+.g-lane-head{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--ink);padding:6px 8px;background:var(--surface-2);border-radius:6px;margin:4px 0}
+.g-lane-dot{width:10px;height:10px;border-radius:3px;background:var(--catcol,#888)}
+.g-row{display:flex;align-items:center;min-height:30px}
+.g-name{flex:0 0 210px;padding:3px 8px 3px 20px;font-size:12px;line-height:1.2}
+.g-name .g-type-ico{color:var(--muted);margin-right:5px;font-size:10px}
+.g-name small{display:block;color:var(--muted);font-size:10px}
+.g-track{position:relative;flex:1;height:26px}
+.g-grid{position:absolute;top:0;bottom:0;width:1px;background:var(--line);opacity:.5}
+.g-bar{position:absolute;top:5px;height:16px;border-radius:5px;background:var(--catcol,#3E6B8B);
+  display:flex;align-items:center;padding:0 7px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.12);overflow:hidden}
+.g-bar-label{font-size:10.5px;color:#fff;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-weight:500}
+.g-bar.done{opacity:.55}
+.g-bar.wait{background:repeating-linear-gradient(45deg,var(--catcol,#3E6B8B),var(--catcol,#3E6B8B) 6px,rgba(255,255,255,.35) 6px,rgba(255,255,255,.35) 12px)}
+.g-bar.blocked{outline:2px solid var(--danger);outline-offset:1px}
+.g-bar.crit{box-shadow:0 0 0 2px var(--danger)}
+/* Meilenstein / Termin */
+.g-milestone-pt{position:absolute;top:3px;cursor:pointer;transform:translateX(-9px)}
+.g-diamond{display:block;width:15px;height:15px;background:var(--catcol,#2F5D62);transform:rotate(45deg);border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.g-milestone-pt.done .g-diamond{opacity:.55}
+.g-milestone-pt.blocked .g-diamond{outline:2px solid var(--danger);outline-offset:1px}
+.g-milestone-pt.crit .g-diamond{box-shadow:0 0 0 2px var(--danger)}
+.g-pt-label{position:absolute;top:1px;transform:translateX(12px);font-size:10px;color:var(--ink);white-space:nowrap;pointer-events:none}
+/* Marker */
+.g-today{position:absolute;top:0;bottom:0;width:2px;background:var(--danger);z-index:3}
+.g-today span{position:absolute;top:-2px;left:3px;font-family:var(--mono);font-size:9px;color:var(--danger);background:var(--surface);padding:0 3px}
+.g-vmark{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed var(--accent);z-index:2}
+.g-vmark.occ{border-color:var(--ok)}
+.g-vmark span{position:absolute;bottom:-2px;left:3px;font-family:var(--mono);font-size:9px;color:var(--accent);background:var(--surface);padding:0 3px}
+.g-vmark.occ span{color:var(--ok)}
+.g-body{position:relative;padding-bottom:6px}
+.g-legend{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:5px}
+.g-legend-row{font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.g-legend .dot,.g-cat-leg .dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:2px}
+.g-legend .dot.plan{background:#7A8B99}.g-legend .dot.active{background:var(--accent)}
+.g-legend .dot.wait{background:var(--warn)}.g-legend .dot.blocked{background:var(--danger)}
+.g-legend .dot.done{background:var(--ok)}.g-legend .dot.crit-dot{background:#fff;box-shadow:0 0 0 2px var(--danger)}
+.g-cat-leg{display:inline-flex;align-items:center;gap:3px;font-size:11px}
+.g-type-ico{font-size:12px;color:var(--accent)}
+
+/* --- Energie-Schieberegler --- */
+.slider-panel{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.slider-panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.slider-panel-head h4{font-family:var(--serif);font-size:15px;text-transform:none;letter-spacing:-.01em;color:var(--ink);margin:0}
+.slider-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px 22px;margin-top:12px}
+.slider-row label{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.slider-val{font-family:var(--mono);font-size:12px;color:var(--accent-2);background:var(--accent-soft);padding:2px 8px;border-radius:6px;font-weight:500}
+.slider-row input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:5px;border-radius:5px;background:var(--line);outline:none}
+.slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.25);border:2px solid #fff}
+.slider-row input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid #fff}
+
+/* Mobile Gantt: Namensspalte schmaler */
+@media(max-width:720px){
+  .g-name-head,.g-name{flex-basis:120px}
+  .ampel-grid{grid-template-columns:1fr 1fr}
+}
