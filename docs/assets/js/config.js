@@ -12,7 +12,7 @@ window.UMB_HINTERSUN_CONFIG = {
     // ----------------------------------------------------
     // Google Apps Script Backend (UNVERAENDERT)
     // ----------------------------------------------------
-    apiUrl: "https://script.google.com/macros/s/AKfycby18mAikh4V8KWL1e_DRRBxCDQAPtD3U6gifWZ3QK7fai-hCu7-azFko8Pzbkv-roAa/exec",
+    apiUrl: "https://script.google.com/macros/s/AKfycbwUpAkvvlGHux_71Y1F7989FjZkMx4XgLfge3JWrPsg3C_djJiL_wnfPbpuLeiURQgu/exec",
 
     // Schreibschutz-Token. Leer lassen, solange im Apps Script KEIN Token gesetzt wurde.
     // Falls setApiToken() im Backend ausgefuehrt wurde, hier den erzeugten Wert eintragen.
