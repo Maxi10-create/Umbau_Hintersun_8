@@ -11,7 +11,7 @@
  * 5) Bereitstellen > Neue Bereitstellung > Web-App.
  */
 
-const BACKEND_VERSION = '5.0.0';
+const BACKEND_VERSION = '5.2.0';
 const PROJECT_NAME = 'Umbau Hintersun 8';
 const SHEET_ORDER = ["settings", "parties", "areas", "budget_estimates", "cost_positions", "offers", "offer_items", "payments", "financing", "bank_offers", "subsidies", "task_categories", "timeline_tasks", "trades", "companies", "bureaucracy", "technicians", "energy_inputs", "energy_results", "documents", "decisions", "cashflow", "audit_log"];
 const SCHEMA = {
@@ -4061,7 +4061,7 @@ function getOrCreateSheet_(name) {
 }
 
 function assertSheet_(name) {
-  if (!SCHEMA[name]) throw new Error('Unknown sheet: ' + name);
+  if (!SCHEMA[name]) throw new Error('Unknown sheet: ' + name + '. Bitte Code.gs neu bereitstellen und Migration ausfuehren (Menuepunkt "Migration: Schema aktualisieren").');
 }
 
 function generateId_(name) {
