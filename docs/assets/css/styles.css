@@ -489,3 +489,31 @@ th.w1cell,th.w2cell{font-weight:600}
 .fin-sum-row.w2cell span:first-child{color:var(--w2)}
 .fin-sum-divider{height:1px;background:var(--accent-soft);margin:4px 0}
 .fin-sum-total span{font-weight:700;font-size:14px}
+
+/* ===== v6: Überblick gesamt/W1/W2 Strip + Timeline-Ausschnitt ===== */
+.gw-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:16px}
+.gw-item{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.gw-item.w1{background:var(--w1-soft)} .gw-item.w2{background:var(--w2-soft)}
+.gw-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.gw-val{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.gw-item.w1 .gw-val{color:var(--w1)} .gw-item.w2 .gw-val{color:var(--w2)}
+.gw-val.ok{color:var(--ok)} .gw-val.danger{color:var(--danger)}
+
+.tl-mini{display:flex;flex-direction:column;gap:1px}
+.tl-mini-row{display:grid;grid-template-columns:82px 16px 1fr auto;gap:8px;align-items:center;
+  padding:8px 6px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .12s}
+.tl-mini-row:last-child{border-bottom:0}
+.tl-mini-row:hover{background:var(--surface-2)}
+.tl-mini-date{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.tl-mini-ico{color:var(--accent);font-size:11px;text-align:center}
+.tl-mini-task{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-mini-owner{font-size:11px;color:var(--muted);white-space:nowrap}
+
+/* Finanzierung: Wohnungs-Karten farbcodiert */
+.fin-block.fin-w1{border-top:3px solid var(--w1)}
+.fin-block.fin-w2{border-top:3px solid var(--w2)}
+.fin-tax-card{border-left:3px solid var(--ok)}
+
+/* Kosten-Herkunft Δ-Spalte */
+.budget-table .var.pos{color:var(--ok)} .budget-table .var.neg{color:var(--danger)}
