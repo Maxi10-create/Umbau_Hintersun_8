@@ -19,10 +19,10 @@
     });
   }
 
-  function renderAll(data, calc) {
+  function renderAll(data, calc, energyOverrides) {
     var months = ['Jan', 'Feb', 'Mrz', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
-    var costs = calc.calcCosts(data), fin = calc.calcFinancing(data), energy = calc.calcEnergy(data), prog = calc.calcProgress(data);
-    var pv = calc.monthlyPV(data), load = calc.monthlyLoad(data);
+    var costs = calc.calcCosts(data), fin = calc.calcFinancing(data), energy = calc.calcEnergy(data, null, energyOverrides), prog = calc.calcProgress(data);
+    var pv = calc.monthlyPV(data, energyOverrides), load = calc.monthlyLoad(data, energyOverrides);
     var aut = months.map(function (m, i) { return Math.min(95, Math.round(Math.min(pv[i], load[i]) / (load[i] || 1) * 100)); });
 
     make('chart-costs', 'doughnut', { labels: Object.keys(costs.byCat), datasets: [{ data: Object.values(costs.byCat), backgroundColor: ['#66e3c4', '#5fb1ff', '#b78cff', '#ffb84d', '#ff6b6b', '#51d88a', '#ffe066', '#8ac6ff'] }] }, { scales: {} });

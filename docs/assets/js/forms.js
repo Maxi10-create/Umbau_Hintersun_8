@@ -104,12 +104,13 @@
       { k: 'comment', l: 'Notiz', t: 'textarea' }
     ]},
     timeline_tasks: { title: 'Aufgabe', fields: [
-      { k: 'phase', l: 'Phase', t: 'text' },
-      { k: 'workstream', l: 'Workstream', t: 'text' },
+      { k: 'category_id', l: 'Hauptkategorie', t: 'catselect' },
+      { k: 'task_type', l: 'Typ', t: 'select', opt: ['Termin','Vorgang'], def: 'Vorgang', hint: 'Termin = fixes Datum (Meilenstein); Vorgang = Zeitraum mit Dauer' },
       { k: 'task', l: 'Aufgabe', t: 'text', req: true },
+      { k: 'description', l: 'Beschreibung', t: 'textarea' },
       { k: 'owner', l: 'Verantwortlich', t: 'text' },
-      { k: 'start_date', l: 'Start', t: 'date' },
-      { k: 'due_date', l: 'Ende / Deadline', t: 'date' },
+      { k: 'start_date', l: 'Start / Datum', t: 'date' },
+      { k: 'due_date', l: 'Ende / Deadline (bei Termin = Start)', t: 'date' },
       { k: 'status', l: 'Status', t: 'select', opt: STATUS },
       { k: 'priority', l: 'Priorität', t: 'select', opt: PRIO },
       { k: 'progress_weight', l: 'Gewicht', t: 'number', def: 1 },
@@ -117,6 +118,12 @@
       { k: 'blocks', l: 'Blockiert', t: 'text' },
       { k: 'is_blocker', l: 'Blocker', t: 'bool', def: 'FALSE' },
       { k: 'comment', l: 'Notiz', t: 'textarea' }
+    ]},
+    task_categories: { title: 'Kategorie', fields: [
+      { k: 'name', l: 'Name', t: 'text', req: true, hint: 'z.B. Architekt, Bauvorgang, Bürokratie, Grundlagen' },
+      { k: 'color', l: 'Farbe', t: 'color', def: '#3E6B8B' },
+      { k: 'sort', l: 'Reihenfolge', t: 'number', def: 5 },
+      { k: 'comment', l: 'Beschreibung', t: 'textarea' }
     ]},
     trades: { title: 'Gewerk', fields: [
       { k: 'trade', l: 'Gewerk', t: 'text', req: true },
@@ -181,6 +188,15 @@
         '<div class="split-inputs"><span>W1 %</span><input type="number" step="0.1" name="share_w1" value="' + esc(w1) + '">' +
         '<span>W2 %</span><input type="number" step="0.1" name="share_w2" value="' + esc(w2) + '">' +
         '<span class="split-sum" id="split-sum">Σ –</span></div>' + hint + '</div>';
+    }
+    if (f.t === 'catselect') {
+      var cats = (window.HinterSunStore ? window.HinterSunStore.table('task_categories') : []) || [];
+      var copts = cats.map(function (c) { return '<option value="' + esc(c.category_id) + '" ' + (String(v) === String(c.category_id) ? 'selected' : '') + '>' + esc(c.name) + '</option>'; }).join('');
+      return '<div class="field"><label>' + esc(f.l) + '</label><select name="' + f.k + '"><option value="">— keine —</option>' + copts + '</select>' + hint + '</div>';
+    }
+    if (f.t === 'color') {
+      var cv = v || f.def || '#3E6B8B';
+      return '<div class="field"><label>' + esc(f.l) + '</label><input type="color" name="' + f.k + '" value="' + esc(cv) + '" style="height:40px;padding:2px"></div>';
     }
     if (f.t === 'select') {
       var opts = (f.opt || []).map(function (o) { return '<option ' + (String(v) === String(o) ? 'selected' : '') + '>' + esc(o) + '</option>'; }).join('');

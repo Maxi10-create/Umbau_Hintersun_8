@@ -17,7 +17,7 @@
     parties: 'party_id', areas: 'unit', budget_estimates: 'estimate_id',
     cost_positions: 'cost_id', offers: 'offer_id', offer_items: 'offer_item_id',
     payments: 'payment_id', financing: 'finance_id', bank_offers: 'bank_offer_id',
-    subsidies: 'subsidy_id', timeline_tasks: 'task_id', trades: 'trade_id',
+    subsidies: 'subsidy_id', task_categories: 'category_id', timeline_tasks: 'task_id', trades: 'trade_id',
     companies: 'company_id', bureaucracy: 'bureau_id', technicians: 'tech_id',
     energy_inputs: 'input_id', energy_results: 'scenario', documents: 'document_id',
     decisions: 'decision_id', settings: 'key', audit_log: 'log_id'
@@ -180,7 +180,7 @@
     parties: 'Partei', areas: 'Einheit', budget_estimates: 'Kostenschätzung',
     cost_positions: 'Kostenposition', offers: 'Angebot', payments: 'Zahlung',
     financing: 'Finanzierung', bank_offers: 'Bankangebot', subsidies: 'Förderung',
-    timeline_tasks: 'Aufgabe', trades: 'Gewerk', companies: 'Firma',
+    timeline_tasks: 'Aufgabe', task_categories: 'Kategorie', trades: 'Gewerk', companies: 'Firma',
     bureaucracy: 'Bürokratie', technicians: 'Techniker', energy_inputs: 'Energieparameter',
     energy_results: 'Szenario', documents: 'Dokument', decisions: 'Entscheidung'
   };

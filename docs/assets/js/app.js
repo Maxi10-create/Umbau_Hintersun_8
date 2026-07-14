@@ -23,6 +23,7 @@
   function eur(v) { return C.euro(v); }
 
   var DATA;
+  var energyOverrides = {};
 
   // ---- generischer Tabellen-Renderer mit Aktionen ----------------------
   function section(containerId, sheet, cols, opts) {
@@ -56,22 +57,36 @@
   // ---- KPIs & Übersicht -------------------------------------------------
   function renderOverview() {
     var prog = C.calcProgress(DATA), costs = C.calcCosts(DATA), fin = C.calcFinancing(DATA), en = C.calcEnergy(DATA), s = C.settingsObj(DATA);
+    var ampel = C.calcAmpel(DATA);
     byId('source-pill').innerHTML = '<span class="status-dot ' + (S.state.online ? 'on' : '') + '"></span>' + esc(S.state.source);
     byId('kpi-progress').textContent = C.pct(prog.taskProgress);
     byId('kpi-progress-sub').textContent = 'Zeit bis Erstbezug ' + C.pct(prog.timeToOcc) + ' · ' + prog.risk;
     byId('kpi-cost').textContent = eur(costs.forecast);
-    byId('kpi-cost-sub').textContent = 'Prognose · beauftragt ' + eur(costs.ordered) + ' · bezahlt ' + eur(costs.paid);
+    byId('kpi-cost-sub').innerHTML = 'W1 ' + eur(costs.w1) + ' · W2 ' + eur(costs.w2);
     byId('kpi-finance').textContent = eur(fin.gap);
     byId('kpi-finance-sub').textContent = 'Rate ~' + eur(fin.totalRate) + '/Monat';
     byId('kpi-energy').textContent = C.pct(en.autarky);
     byId('kpi-energy-sub').textContent = 'PV ' + en.maxKwp.toFixed(1) + ' kWp · Batterie ' + en.batteryRecommendation;
 
+    // Mehrdimensionale Projektampel
+    function lampCls(l) { return l === 'gruen' ? 'ok' : l === 'gelb' ? 'warn' : 'danger'; }
+    function lamp(title, a) {
+      return '<div class="ampel-item ' + lampCls(a.level) + '">' +
+        '<span class="ampel-light"></span>' +
+        '<div class="ampel-text"><strong>' + esc(title) + '</strong><span class="ampel-label">' + esc(a.label) + '</span>' +
+        '<span class="ampel-detail">' + esc(a.detail) + '</span></div></div>';
+    }
     byId('overview-summary').innerHTML =
-      '<div class="split"><span class="tag ' + (prog.diff >= 0 ? 'ok' : prog.diff < -10 ? 'danger' : 'warn') + '">' + esc(prog.risk) + '</span>' +
-      '<span class="tag blue">' + prog.daysToOcc + ' Tage bis Erstbezug</span>' +
-      '<span class="tag blue">' + prog.critical + ' kritische offene Aufgaben</span></div>' +
+      '<div class="ampel-head"><span class="ampel-overall ' + lampCls(ampel.overall) + '">' +
+        (ampel.overall === 'gruen' ? 'Gesamt: auf Kurs' : ampel.overall === 'gelb' ? 'Gesamt: Achtung' : 'Gesamt: kritisch') +
+      '</span><span class="tag blue">' + prog.daysToBuild + ' Tage bis Baubeginn</span>' +
+      '<span class="tag blue">' + prog.daysToOcc + ' Tage bis Erstbezug</span></div>' +
+      '<div class="ampel-grid">' +
+        lamp('Zeit', ampel.zeit) + lamp('Kosten', ampel.kosten) +
+        lamp('Bürokratie', ampel.buero) + lamp('Vergabe', ampel.vergabe) +
+      '</div>' +
       '<div class="hr"></div><div class="progress ' + (prog.diff < 0 ? 'warn' : '') + '"><span style="width:' + Math.round(prog.taskProgress) + '%"></span></div>' +
-      '<p class="mini muted">Aufgabenfortschritt ' + C.pct(prog.taskProgress) + ' vs. Zeitfortschritt ' + C.pct(prog.timeToOcc) + '.</p>';
+      '<p class="mini muted">Aufgabenfortschritt ' + C.pct(prog.taskProgress) + ' vs. Zeitfortschritt ' + C.pct(prog.timeToOcc) + '. Jede Ampel hat ein eigenes, nachvollziehbares Kriterium (kein Sammelwert).</p>';
 
     var next = (DATA.timeline_tasks || []).filter(function (t) { return String(t.status).toLowerCase().indexOf('erledigt') < 0; })
       .sort(function (a, b) { return prio(b.priority) - prio(a.priority) || String(a.due_date).localeCompare(String(b.due_date)); }).slice(0, 6);
@@ -98,20 +113,39 @@
     byId('cost-finance-summary').innerHTML =
       '<div class="grid auto">' +
       card('Prognose gesamt', eur(costs.forecast), 'max(Schätzung, Auftrag, Rechnung) je Block') +
-      card('Beauftragt', eur(costs.ordered), 'aktive Aufträge') +
-      card('Bezahlt', eur(costs.paid), 'Ist-Zahlungen') +
-      card('Finanzierungslücke', eur(fin.gap), 'nach EK, Förderung, Krediten', fin.gap > 0 ? 'danger' : 'ok') +
+      cardSplit('davon W1 / Ingrid', eur(costs.w1), 'davon W2 / Maximilian', eur(costs.w2)) +
+      card('Bezahlt', eur(costs.paid), 'W1 ' + eur(costs.paidW1) + ' · W2 ' + eur(costs.paidW2)) +
+      card('Finanzierungslücke', eur(fin.gap), 'W1 ' + eur(fin.gapW1) + ' · W2 ' + eur(fin.gapW2), fin.gap > 0 ? 'danger' : 'ok') +
       '</div>';
 
-    // Budgetblöcke (gestuft)
+    // Budgetblöcke (gestuft) mit W1/W2-Spalten und Baseline-Abgleich
     var b = costs.budget;
     var blockRows = b.rows.map(function (r) {
-      return '<tr><td><strong>' + esc(r.block) + '</strong></td><td>' + eur(r.estimate) + '</td><td>' + eur(r.ordered) +
-        '</td><td>' + eur(r.invoiced) + '</td><td>' + eur(r.paid) + '</td><td><strong>' + eur(r.forecast) + '</strong></td></tr>';
+      var varc = r.varianceToBaseline;
+      var varCls = varc > 1 ? 'neg' : varc < -1 ? 'pos' : '';
+      var varTxt = (varc > 0 ? '+' : '') + eur(varc);
+      return '<tr>' +
+        '<td><strong>' + esc(r.block) + '</strong>' + (r.currentEstVersion ? '<small class="muted"> · ' + esc(r.currentEstVersion) + '</small>' : '') + '</td>' +
+        '<td class="muted">' + eur(r.baseline) + '</td>' +
+        '<td>' + eur(r.estimate) + '</td>' +
+        '<td>' + eur(r.ordered) + '</td>' +
+        '<td>' + eur(r.paid) + '</td>' +
+        '<td><strong>' + eur(r.forecast) + '</strong></td>' +
+        '<td class="var ' + varCls + '">' + varTxt + '</td>' +
+        '<td class="w1cell">' + eur(r.forecastW1) + '</td>' +
+        '<td class="w2cell">' + eur(r.forecastW2) + '</td>' +
+        '</tr>';
     }).join('');
-    byId('budget-blocks').innerHTML = '<div class="table-wrap"><table><thead><tr><th>Budgetblock</th><th>Schätzung</th><th>Beauftragt</th><th>Fakturiert</th><th>Bezahlt</th><th>Prognose</th></tr></thead><tbody>' +
-      (blockRows || '<tr><td colspan="6" class="muted">Noch keine Kostenblöcke.</td></tr>') +
-      '<tr class="total-row"><td>Summe</td><td>' + eur(b.totals.estimate) + '</td><td>' + eur(b.totals.ordered) + '</td><td>' + eur(b.totals.invoiced) + '</td><td>' + eur(b.totals.paid) + '</td><td><strong>' + eur(b.totals.forecast) + '</strong></td></tr>' +
+    var tv = b.totals.varianceToBaseline;
+    byId('budget-blocks').innerHTML =
+      '<div class="section-note mini muted">Grobschätzung (Baseline) bleibt als Referenz stehen; Prognose = Ist-Abgleich in Echtzeit. Δ zeigt Abweichung Prognose − Baseline.</div>' +
+      '<div class="table-wrap"><table class="budget-table"><thead><tr>' +
+      '<th>Budgetblock</th><th class="muted">Baseline</th><th>Akt. Schätzung</th><th>Beauftragt</th><th>Bezahlt</th><th>Prognose</th><th>Δ Baseline</th>' +
+      '<th class="w1cell">W1 / Ingrid</th><th class="w2cell">W2 / Maximilian</th></tr></thead><tbody>' +
+      (blockRows || '<tr><td colspan="9" class="muted">Noch keine Kostenblöcke.</td></tr>') +
+      '<tr class="total-row"><td>Summe</td><td class="muted">' + eur(b.totals.baseline) + '</td><td>' + eur(b.totals.estimate) + '</td><td>' + eur(b.totals.ordered) + '</td><td>' + eur(b.totals.paid) + '</td>' +
+      '<td><strong>' + eur(b.totals.forecast) + '</strong></td><td class="var ' + (tv > 1 ? 'neg' : tv < -1 ? 'pos' : '') + '">' + (tv > 0 ? '+' : '') + eur(tv) + '</td>' +
+      '<td class="w1cell"><strong>' + eur(b.totals.forecastW1) + '</strong></td><td class="w2cell"><strong>' + eur(b.totals.forecastW2) + '</strong></td></tr>' +
       '</tbody></table></div>';
 
     // Angebote + Vergleichsgruppen + Auftrag erteilen
@@ -156,10 +190,11 @@
       { h: 'Position', get: function (r) { return esc(r.item); } },
       { h: 'Art', get: function (r) { return esc(r.source_type); } },
       { h: 'Brutto', get: function (r) { return eur(r.gross); } },
+      { h: 'W1 / Ingrid', get: function (r) { return '<span class="w1cell">' + eur(C.shareOf(r, 'w1')) + '</span>'; } },
+      { h: 'W2 / Maximilian', get: function (r) { return '<span class="w2cell">' + eur(C.shareOf(r, 'w2')) + '</span>'; } },
       { h: 'Status', get: function (r) { return tag(r.status); } },
-      { h: 'Aktiv', get: function (r) { return String(r.active).toUpperCase() === 'FALSE' ? '<span class="tag">inaktiv</span>' : '<span class="tag ok">aktiv</span>'; } },
-      { h: 'Bezahlt', get: function (r) { return String(r.paid).toUpperCase() === 'TRUE' ? '✓' : ''; } }
-    ], { note: 'Auftrag/Rechnung/Zahlung – Prognose zählt max je Block, keine Doppelzählung.' });
+      { h: 'Aktiv', get: function (r) { return String(r.active).toUpperCase() === 'FALSE' ? '<span class="tag">inaktiv</span>' : '<span class="tag ok">aktiv</span>'; } }
+    ], { note: 'Auftrag/Rechnung/Zahlung – Prognose zählt max je Block, keine Doppelzählung. W1/W2 aus der Aufteilung je Position.' });
 
     // Versionierte Schätzungen
     section('budget-estimates-table', 'budget_estimates', [
@@ -217,29 +252,62 @@
   function card(label, value, sub, cls) {
     return '<div class="card"><h4>' + esc(label) + '</h4><div class="kpi-value ' + (cls || '') + '">' + value + '</div><div class="kpi-sub">' + esc(sub || '') + '</div></div>';
   }
+  function cardSplit(l1, v1, l2, v2) {
+    return '<div class="card split-card">' +
+      '<div class="split-half w1"><h4>' + esc(l1) + '</h4><div class="kpi-value">' + v1 + '</div></div>' +
+      '<div class="split-half w2"><h4>' + esc(l2) + '</h4><div class="kpi-value">' + v2 + '</div></div>' +
+      '</div>';
+  }
 
-  // ---- Zeitplan (Gantt + Aufgaben) -------------------------------------
+  // ---- Zeitplan (Gantt + Aufgaben + Kategorien) ------------------------
   function renderTimeline() {
     var s = C.settingsObj(DATA);
     byId('build-date').value = s.target_construction_start || '2026-09-01';
     byId('occupancy-date').value = s.target_first_occupancy || '2027-06-30';
 
-    var filterVal = (byId('gantt-filter') && byId('gantt-filter').value) || '';
+    // Kategorien-Filter dynamisch befüllen
+    var gf = byId('gantt-filter');
+    if (gf) {
+      var prev = gf.value;
+      var opts = '<option value="">alle Kategorien</option>' +
+        (DATA.task_categories || []).map(function (c) { return '<option value="cat:' + esc(c.category_id) + '">' + esc(c.name) + '</option>'; }).join('') +
+        '<option value="type:Termin">nur Termine</option><option value="type:Vorgang">nur Vorgänge</option>' +
+        '<option value="prio:kritisch">nur kritisch</option>';
+      gf.innerHTML = opts;
+      gf.value = prev;
+    }
+    var filterVal = (gf && gf.value) || '';
+    var filterFn = null;
+    if (filterVal.indexOf('cat:') === 0) { var cid = filterVal.slice(4); filterFn = function (t) { return t.category_id === cid; }; }
+    else if (filterVal.indexOf('type:') === 0) { var ty = filterVal.slice(5).toLowerCase(); filterFn = function (t) { return String(t.task_type).toLowerCase() === ty || (ty === 'termin' && t.start_date === t.due_date) || (ty === 'vorgang' && t.start_date !== t.due_date); }; }
+    else if (filterVal.indexOf('prio:') === 0) { var pr = filterVal.slice(5).toLowerCase(); filterFn = function (t) { return String(t.priority).toLowerCase() === pr; }; }
+
     G.render(byId('gantt'), DATA.timeline_tasks || [], {
+      data: DATA,
       buildDate: s.target_construction_start, occDate: s.target_first_occupancy,
-      filter: filterVal ? function (t) { return String(t.phase || '') === filterVal || String(t.priority || '') === filterVal; } : null,
+      filter: filterFn,
       onClick: function (id) { F.open('timeline_tasks', id); }
     });
 
+    // Kategorien verwalten (erstellbar, farblich)
+    section('task-categories-table', 'task_categories', [
+      { h: 'Farbe', get: function (r) { return '<span class="cat-swatch" style="background:' + esc(r.color || '#888') + '"></span>'; } },
+      { h: 'Kategorie', get: function (r) { return '<strong>' + esc(r.name) + '</strong>'; } },
+      { h: 'Reihenfolge', get: function (r) { return esc(r.sort); } },
+      { h: 'Beschreibung', get: function (r) { return esc(r.comment); } }
+    ], { note: 'Hauptkategorien für den Zeitplan – frei erstellbar und farblich unterscheidbar (Architekt, Bauvorgang, Bürokratie, Grundlagen …).' });
+
+    // Aufgabentabelle mit Typ, Kategorie, Beschreibung
+    var catNames = {}; (DATA.task_categories || []).forEach(function (c) { catNames[c.category_id] = c; });
     section('tasks-table', 'timeline_tasks', [
-      { h: 'Phase', get: function (r) { return esc(r.phase); } },
-      { h: 'Aufgabe', get: function (r) { return esc(r.task); } },
+      { h: 'Kategorie', get: function (r) { var c = catNames[r.category_id]; return c ? '<span class="cat-pill" style="--catcol:' + esc(c.color) + '">' + esc(c.name) + '</span>' : esc(r.phase); } },
+      { h: 'Typ', get: function (r) { var t = String(r.task_type || (r.start_date === r.due_date ? 'Termin' : 'Vorgang')); return '<span class="type-pill ' + (t.toLowerCase() === 'termin' ? 'termin' : 'vorgang') + '">' + esc(t) + '</span>'; } },
+      { h: 'Aufgabe', get: function (r) { return '<strong>' + esc(r.task) + '</strong>' + (r.description ? '<br><small class="muted">' + esc(String(r.description).slice(0, 120)) + (String(r.description).length > 120 ? '…' : '') + '</small>' : ''); } },
       { h: 'Verantw.', get: function (r) { return esc(r.owner); } },
-      { h: 'Start', get: function (r) { return esc(r.start_date); } },
-      { h: 'Ende', get: function (r) { return esc(r.due_date); } },
-      { h: 'Status', get: function (r) { return tag(r.status); } },
+      { h: 'Datum / Zeitraum', get: function (r) { return String(r.task_type).toLowerCase() === 'termin' || r.start_date === r.due_date ? '<strong>' + esc(r.start_date) + '</strong>' : esc(r.start_date) + ' → ' + esc(r.due_date); } },
+      { h: 'Status', get: function (r) { return tag(r.status) + (String(r.is_blocker).toUpperCase() === 'TRUE' ? ' <span class="tag danger">Blocker</span>' : ''); } },
       { h: 'Prio', get: function (r) { return esc(r.priority); } }
-    ]);
+    ], { sort: function (a, b) { return String(a.start_date).localeCompare(String(b.start_date)); } });
   }
 
   // ---- Gewerke & Firmen -------------------------------------------------
@@ -260,26 +328,65 @@
     ]);
   }
 
-  // ---- Energie ----------------------------------------------------------
+  // ---- Energie (live, formelbasiert, Schieberegler) --------------------
   function renderEnergy() {
     var scEl = byId('energy-scenario');
     var scenario = (scEl && scEl.value) || 'Pellet + WP';
-    var e = C.calcEnergy(DATA, scenario);
-    byId('energy-summary').innerHTML = '<div class="grid auto">' +
-      card('PV maximal', e.maxKwp.toFixed(1) + ' kWp', 'nutzbare Fläche ' + e.usable.toFixed(0) + ' m²') +
-      card('PV-Ertrag', Math.round(e.pvAnnual).toLocaleString('de-AT') + ' kWh/a', 'PVGIS-basiert') +
+    var base = C.calcEnergy(DATA, scenario);
+    var e = C.calcEnergy(DATA, scenario, energyOverrides);
+
+    // Schieberegler-Definitionen (Startwert = aktueller Wert)
+    var sliders = [
+      { key: 'pvKwp', label: 'PV-Leistung', unit: 'kWp', min: 0, max: Math.max(12, Math.ceil(base.maxKwp)), step: 0.1, value: e.pvKwp, fmt: function (v) { return v.toFixed(1) + ' kWp'; } },
+      { key: 'battery', label: 'Batteriespeicher', unit: 'kWh', min: 0, max: 20, step: 1, value: e.battery, fmt: function (v) { return v + ' kWh'; } },
+      { key: 'pelletShare', label: 'Pelletanteil an Heizung', unit: '%', min: 0, max: 100, step: 5, value: Math.round(e.pelletShare * 100), fmt: function (v) { return v + ' %'; }, scale: 0.01 },
+      { key: 'heatDemand', label: 'Heizwärmebedarf', unit: 'kWh/a', min: 6000, max: 25000, step: 500, value: e.heatDemand, fmt: function (v) { return Math.round(v).toLocaleString('de-AT') + ' kWh/a'; } },
+      { key: 'evCount', label: 'E-Autos', unit: '', min: 0, max: 3, step: 1, value: e.evCount, fmt: function (v) { return v + ' Stk'; } },
+      { key: 'household', label: 'Haushaltsstrom', unit: 'kWh/a', min: 2000, max: 10000, step: 250, value: e.household, fmt: function (v) { return Math.round(v).toLocaleString('de-AT') + ' kWh/a'; } },
+      { key: 'elecPrice', label: 'Strompreis Netzbezug', unit: '€/kWh', min: 0.10, max: 0.45, step: 0.01, value: e.elecPrice, fmt: function (v) { return v.toFixed(2) + ' €/kWh'; } }
+    ];
+    var sliderHTML = sliders.map(function (sl) {
+      return '<div class="slider-row" data-key="' + sl.key + '" data-scale="' + (sl.scale || 1) + '">' +
+        '<label>' + esc(sl.label) + '<span class="slider-val" id="sv-' + sl.key + '">' + sl.fmt(sl.key === 'pelletShare' ? sl.value : sl.value) + '</span></label>' +
+        '<input type="range" min="' + sl.min + '" max="' + sl.max + '" step="' + sl.step + '" value="' + sl.value + '">' +
+        '</div>';
+    }).join('');
+    var reset = Object.keys(energyOverrides).length ? '<button class="btn small secondary" id="energy-reset">Auf Ausgangswerte zurücksetzen</button>' : '';
+
+    byId('energy-summary').innerHTML =
+      '<div class="grid auto">' +
+      card('PV-Ertrag', Math.round(e.pvAnnual).toLocaleString('de-AT') + ' kWh/a', e.pvKwp.toFixed(1) + ' kWp (max ' + e.maxKwp.toFixed(1) + ') · PVGIS-basiert') +
       card('Jahresautarkie', C.pct(e.autarky), 'Direkt + Batterie ' + e.battery + ' kWh') +
-      card('Energiekosten', eur(e.energyCost), 'Netz − Einspeisung + Pellet') +
+      card('Netzbezug', Math.round(e.grid).toLocaleString('de-AT') + ' kWh/a', 'Einspeisung ' + Math.round(e.feedIn).toLocaleString('de-AT') + ' kWh/a') +
+      card('Energiekosten', eur(e.energyCost) + '/a', 'Netz − Einspeisung + Pellet', e.energyCost < base.energyCost ? 'ok' : '') +
       card('WP-Deckungsgrad', Math.round(e.wpCoverage) + '%', 'Pelletbedarf ~' + Math.round(e.pelletKg) + ' kg/a') +
       card('Speicher-Empfehlung', e.batteryRecommendation, 'sinnvoller Rahmen') +
-      '</div>';
+      '</div>' +
+      '<div class="slider-panel"><div class="slider-panel-head"><h4>Live-Auslegung · Schieberegler</h4>' + reset + '</div>' +
+      '<p class="mini muted">Alle Werte werden formelbasiert und live neu berechnet (PVGIS-Ertrag, JAZ/COP, Direktverbrauch + Batterie-Modell). Regler ändern nur die Anzeige – zum dauerhaften Speichern die Werte in „Energieparameter“ unten eintragen.</p>' +
+      '<div class="slider-grid">' + sliderHTML + '</div></div>';
+
+    // Slider-Events -> Overrides -> re-render (nur Energie + Charts)
+    byId('energy-summary').querySelectorAll('.slider-row input').forEach(function (inp) {
+      inp.addEventListener('input', function () {
+        var row = inp.closest('.slider-row');
+        var key = row.getAttribute('data-key');
+        var scale = parseFloat(row.getAttribute('data-scale')) || 1;
+        var raw = parseFloat(inp.value);
+        energyOverrides[key] = raw * scale;
+        renderEnergy();
+        if (Charts) Charts.renderAll(DATA, C, energyOverrides);
+      });
+    });
+    var rb = byId('energy-reset');
+    if (rb) rb.addEventListener('click', function () { energyOverrides = {}; renderEnergy(); if (Charts) Charts.renderAll(DATA, C, energyOverrides); });
 
     section('energy-inputs-table', 'energy_inputs', [
       { h: 'Modul', get: function (r) { return esc(r.module); } },
       { h: 'Parameter', get: function (r) { return esc(r.name); } },
       { h: 'Wert', get: function (r) { return esc(r.value); } },
       { h: 'Einheit', get: function (r) { return esc(r.unit); } }
-    ], { note: 'Alle Berechnungen reagieren live auf diese Parameter.' });
+    ], { note: 'Basiswerte für alle Formeln. Schieberegler oben überschreiben sie temporär; hier gespeicherte Werte sind die Ausgangsbasis.' });
   }
 
   // ---- Szenarien & Entscheidungen --------------------------------------
@@ -316,7 +423,7 @@
     DATA = S.state.data;
     renderOverview(); renderProject(); renderCosts(); renderTimeline();
     renderTrades(); renderEnergy(); renderScenarios(); renderDocs();
-    if (Charts && Charts.renderAll) { try { Charts.renderAll(DATA, C); } catch (e) { console.warn(e); } }
+    if (Charts && Charts.renderAll) { try { Charts.renderAll(DATA, C, energyOverrides); } catch (e) { console.warn(e); } }
   }
 
   function setupNav() {
@@ -327,7 +434,7 @@
         qsa('.tab').forEach(function (t) { t.classList.remove('active'); });
         byId(btn.dataset.tab).classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(function () { if (Charts) Charts.renderAll(DATA, C); if (byId(btn.dataset.tab).querySelector('#gantt')) renderTimeline(); }, 80);
+        setTimeout(function () { if (Charts) Charts.renderAll(DATA, C, energyOverrides); if (byId(btn.dataset.tab).querySelector('#gantt')) renderTimeline(); }, 80);
       });
     });
   }
@@ -336,7 +443,7 @@
     byId('build-date').addEventListener('change', function (e) { S.update('settings', 'target_construction_start', { value: e.target.value }); });
     byId('occupancy-date').addEventListener('change', function (e) { S.update('settings', 'target_first_occupancy', { value: e.target.value }); });
     var gf = byId('gantt-filter'); if (gf) gf.addEventListener('change', renderTimeline);
-    var es = byId('energy-scenario'); if (es) es.addEventListener('change', function () { renderEnergy(); if (Charts) Charts.renderAll(DATA, C); });
+    var es = byId('energy-scenario'); if (es) es.addEventListener('change', function () { energyOverrides = {}; renderEnergy(); if (Charts) Charts.renderAll(DATA, C, energyOverrides); });
   }
 
   async function init() {

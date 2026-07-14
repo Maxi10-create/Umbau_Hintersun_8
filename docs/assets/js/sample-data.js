@@ -373,7 +373,14 @@ window.HINTERSUN_SAMPLE_DATA = {
       "paid": "partly",
       "payment_due": "phasenweise",
       "document_id": "DOC-ARCH-001",
-      "risk": "Statik, SiGeKo, Klimahaus, ENEA, Haustechnik nicht enthalten"
+      "risk": "Statik, SiGeKo, Klimahaus, ENEA, Haustechnik nicht enthalten",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "active": "TRUE",
+      "compare_group": "Architektur",
+      "offer_id": "OFF-KLEMENT-20260312",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "cost_id": "C-STAT-001",
@@ -381,18 +388,25 @@ window.HINTERSUN_SAMPLE_DATA = {
       "subcategory": "Statik",
       "item": "Statik Manuel Troger",
       "supplier": "Manuel Troger",
-      "status": "Angebot/ok",
-      "source_type": "Notiz",
+      "status": "beauftragt",
+      "source_type": "Auftrag",
       "net": "3700",
       "vat_rate": "22",
       "gross": "4514",
       "party_assignment": "gemeinsam",
       "split_key": "thousandths_466_534",
-      "final": "FALSE",
+      "final": "TRUE",
       "paid": "FALSE",
       "payment_due": "offen",
       "document_id": "DOC-STATUS-ARCH",
-      "risk": "Leistung/Abrechnung final pruefen"
+      "risk": "Leistung/Abrechnung final pruefen",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "active": "TRUE",
+      "compare_group": "Statik",
+      "offer_id": "OFF-TROGER-20260314",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "cost_id": "C-PSP-001",
@@ -411,7 +425,14 @@ window.HINTERSUN_SAMPLE_DATA = {
       "paid": "TRUE",
       "payment_due": "2026-04-27",
       "document_id": "DOC-PSP-001",
-      "risk": "weitere Beratung optional"
+      "risk": "weitere Beratung optional",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "active": "TRUE",
+      "compare_group": "Steuerberatung",
+      "offer_id": "OFF-PSP-20260316",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "cost_id": "C-GEM-001",
@@ -430,7 +451,14 @@ window.HINTERSUN_SAMPLE_DATA = {
       "paid": "TRUE",
       "payment_due": "2026-02-24",
       "document_id": "DOC-STATUS-ARCH",
-      "risk": ""
+      "risk": "",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "active": "TRUE",
+      "compare_group": "",
+      "offer_id": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "cost_id": "C-GEM-002",
@@ -449,45 +477,14 @@ window.HINTERSUN_SAMPLE_DATA = {
       "paid": "TRUE",
       "payment_due": "2026-03-10",
       "document_id": "DOC-STATUS-ARCH",
-      "risk": ""
-    },
-    {
-      "cost_id": "C-KUE-RESCH",
-      "category": "Innenausbau",
-      "subcategory": "Kueche",
-      "item": "Kueche Resch Angebot TS 26_123",
-      "supplier": "Resch Möbel GmbH",
-      "status": "Angebot erhalten",
-      "source_type": "Angebot",
-      "net": "22442",
-      "vat_rate": "22",
-      "gross": "27378",
-      "party_assignment": "W2",
-      "split_key": "100_w2",
-      "final": "FALSE",
-      "paid": "FALSE",
-      "payment_due": "offen",
-      "document_id": "DOC-KUE-RESCH",
-      "risk": "Maurer/Hydrauliker/Elektriker nicht enthalten"
-    },
-    {
-      "cost_id": "C-KUE-STAMPFL",
-      "category": "Innenausbau",
-      "subcategory": "Kueche",
-      "item": "Kuecheneinrichtung Stampfl",
-      "supplier": "Stampfl Küche & Wohnen",
-      "status": "Angebot erhalten",
-      "source_type": "Angebot",
-      "net": "25900",
-      "vat_rate": "22",
-      "gross": "31598",
-      "party_assignment": "W2",
-      "split_key": "100_w2",
-      "final": "FALSE",
-      "paid": "FALSE",
-      "payment_due": "offen",
-      "document_id": "DOC-KUE-STAMPFL",
-      "risk": "MwSt, Wasseranschluss, Beleuchtung, Gipskarton nicht enthalten"
+      "risk": "",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "active": "TRUE",
+      "compare_group": "",
+      "offer_id": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "cost_id": "C-SIGEKO-001",
@@ -506,7 +503,14 @@ window.HINTERSUN_SAMPLE_DATA = {
       "paid": "FALSE",
       "payment_due": "vor Baubeginn",
       "document_id": "DOC-STATUS-ARCH",
-      "risk": "kritisch fuer Baustart"
+      "risk": "kritisch fuer Baustart",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "active": "TRUE",
+      "compare_group": "Sicherheitskoordination",
+      "offer_id": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "cost_id": "C-BLITZ-001",
@@ -525,7 +529,40 @@ window.HINTERSUN_SAMPLE_DATA = {
       "paid": "FALSE",
       "payment_due": "vor Baukonzession",
       "document_id": "DOC-STATUS-ARCH",
-      "risk": "benoetigt fuer Baukonzession laut Notiz"
+      "risk": "benoetigt fuer Baukonzession laut Notiz",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "active": "TRUE",
+      "compare_group": "Blitzschutz",
+      "offer_id": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "cost_id": "C-STEMPEL-001",
+      "category": "Buerokratie",
+      "subcategory": "Stempelmarken",
+      "item": "Stempelmarken Durchfuehrungsplan/Einreichung",
+      "supplier": "Agentur Einnahmen",
+      "status": "bezahlt",
+      "source_type": "Zahlung",
+      "net": "64",
+      "vat_rate": "0",
+      "gross": "64",
+      "party_assignment": "projekt",
+      "split_key": "manual",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "compare_group": "",
+      "offer_id": "",
+      "active": "TRUE",
+      "final": "TRUE",
+      "paid": "TRUE",
+      "payment_due": "beglichen",
+      "document_id": "DOC-STATUS-ARCH",
+      "risk": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "offers": [
@@ -545,7 +582,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "included": "Lieferung, Montage",
       "excluded": "Maurer, Hydrauliker, Elektriker, nicht explizit angebotene Arbeiten",
       "document_id": "DOC-KUE-RESCH",
-      "comment": "Keramik Arbeitsplatte, NEFF/Bora laut Angebot"
+      "comment": "Keramik Arbeitsplatte, NEFF/Bora laut Angebot",
+      "compare_group": "Kueche",
+      "active": "TRUE",
+      "share_w1": 0,
+      "share_w2": 100,
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "offer_id": "OFF-STAMPFL-20260320",
@@ -563,7 +606,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "included": "Lieferung, Montage, Massabnahme, Detailplaene, Installationsplaene",
       "excluded": "MwSt, Wasseranschluss, Wasserhahn, Beleuchtung, evtl. Gipskarton",
       "document_id": "DOC-KUE-STAMPFL",
-      "comment": "Quarzit, Miele, Bora PURA2"
+      "comment": "Quarzit, Miele, Bora PURA2",
+      "compare_group": "Kueche",
+      "active": "TRUE",
+      "share_w1": 0,
+      "share_w2": 100,
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "offer_id": "OFF-KLEMENT-20260312",
@@ -581,7 +630,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "included": "Planung, Einreichung, Ausfuehrung, Ausschreibung, Bauleitung, Abnahme laut Auftrag",
       "excluded": "Statik, SiGeKo, Klimahaus, ENEA, Haustechnikplanung",
       "document_id": "DOC-ARCH-001",
-      "comment": "Skontiertes Honorar inkl. Nebenkosten + 4% Gesundheitssteuer + MwSt"
+      "comment": "Skontiertes Honorar inkl. Nebenkosten + 4% Gesundheitssteuer + MwSt",
+      "compare_group": "Architektur",
+      "active": "TRUE",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "offer_id": "OFF-PSP-20260316",
@@ -599,7 +654,38 @@ window.HINTERSUN_SAMPLE_DATA = {
       "included": "Beratung, Mindesthonorar 800 EUR",
       "excluded": "2% Erfolgs-/Zusatzhonorar, Steuererklaerung 500 EUR, Leihvertrag 210 EUR",
       "document_id": "DOC-PSP-001",
-      "comment": "erste Rechnung 253,76 EUR laut Notiz bezahlt"
+      "comment": "erste Rechnung 253,76 EUR laut Notiz bezahlt",
+      "compare_group": "Steuerberatung",
+      "active": "TRUE",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "offer_id": "OFF-TROGER-20260314",
+      "trade": "Statik",
+      "compare_group": "Statik",
+      "supplier": "Dipl.-Ing. Manuel Troger",
+      "date": "2026-03-14",
+      "valid_until": "",
+      "net": "3700",
+      "vat_rate": "22",
+      "gross": "4514",
+      "status": "Auftrag erteilt",
+      "final": "TRUE",
+      "active": "TRUE",
+      "party_assignment": "gemeinsam",
+      "split_key": "thousandths_466_534",
+      "share_w1": 46.6,
+      "share_w2": 53.4,
+      "score": "88",
+      "included": "Ausfuehrungsstatik 1800 EUR + Statische Bauleitung 1900 EUR",
+      "excluded": "Statische Kollaudierung, Standsicherheit Baukran",
+      "document_id": "DOC-STATIK-TROGER",
+      "comment": "Angebotsgrundlage Einreichprojekt 04.03.2026",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "payments": [
@@ -612,7 +698,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "related_cost_id": "C-GEM-001",
       "status": "bezahlt",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "Durchfuehrungsplan Sekretariatsgebuehren"
+      "comment": "Durchfuehrungsplan Sekretariatsgebuehren",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "payment_id": "PAY-GEM-20260310",
@@ -623,7 +711,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "related_cost_id": "C-GEM-002",
       "status": "bezahlt/vorgemerkt",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "Einreichprojekt Sekretariatsgebuehren"
+      "comment": "Einreichprojekt Sekretariatsgebuehren",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "payment_id": "PAY-PSP-20260427",
@@ -634,18 +724,61 @@ window.HINTERSUN_SAMPLE_DATA = {
       "related_cost_id": "C-PSP-001",
       "status": "bezahlt",
       "document_id": "DOC-STATUS-BUER",
-      "comment": "erste PSP Rechnung"
+      "comment": "erste PSP Rechnung",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "payment_id": "PAY-ARCH-20260427",
       "date": "2026-04-27",
       "supplier": "Klement Architects",
-      "amount_gross": "22208.25",
+      "amount_gross": "22204.00",
       "paid_by": "Ingrid Harder",
       "related_cost_id": "C-ARCH-001",
-      "status": "bezahlt/Pruefen",
+      "status": "bezahlt",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "erste Honorarzahlung laut Statusnotiz, Betrag bitte pruefen"
+      "comment": "Fattura n. 2604 vom 23.03.2026: Durchfuehrungsplanaenderung 4900 + Einreichprojekt 12600, faellig 23.04.2026, bezahlt 27.04.2026",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "payment_id": "PAY-STEMP-20260224",
+      "date": "2026-02-24",
+      "supplier": "Agentur Einnahmen",
+      "amount_gross": "16",
+      "paid_by": "Maximilian Hofer",
+      "related_cost_id": "C-STEMPEL-001",
+      "status": "bezahlt",
+      "document_id": "DOC-STATUS-ARCH",
+      "comment": "Stempelmarke Durchfuehrungsplan",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "payment_id": "PAY-STEMP-20260309",
+      "date": "2026-03-09",
+      "supplier": "Agentur Einnahmen",
+      "amount_gross": "32",
+      "paid_by": "Maximilian Hofer",
+      "related_cost_id": "C-STEMPEL-001",
+      "status": "bezahlt",
+      "document_id": "DOC-STATUS-ARCH",
+      "comment": "2x Stempelmarke Einreichprojekt",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "payment_id": "PAY-STEMP-20260608",
+      "date": "2026-06-08",
+      "supplier": "Agentur Einnahmen",
+      "amount_gross": "16",
+      "paid_by": "Ingrid Harder",
+      "related_cost_id": "C-STEMPEL-001",
+      "status": "bezahlt",
+      "document_id": "DOC-STATUS-BUER",
+      "comment": "Stempelmarke Foto nachgereicht",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "financing": [
@@ -658,7 +791,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "0",
       "status": "Arbeitsannahme",
       "source": "Status_Buero(kratie)_20260711.pdf",
-      "comment": "vorlaeufige Grobkosten"
+      "comment": "vorlaeufige Grobkosten",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "finance_id": "FIN-W2-COST",
@@ -669,7 +804,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "0",
       "status": "Arbeitsannahme",
       "source": "Status_Buero(kratie)_20260711.pdf",
-      "comment": "vorlaeufige Grobkosten"
+      "comment": "vorlaeufige Grobkosten",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "finance_id": "FIN-W1-EK",
@@ -680,7 +817,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "0",
       "status": "geplant",
       "source": "Status_Buero(kratie)_20260711.pdf",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "finance_id": "FIN-W2-EK",
@@ -691,7 +830,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "0",
       "status": "geplant",
       "source": "Status_Buero(kratie)_20260711.pdf",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "finance_id": "FIN-W1-SUB",
@@ -702,7 +843,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "0",
       "status": "erwartet",
       "source": "Status_Buero(kratie)_20260711.pdf",
-      "comment": "Foerderung noch nicht gesichert"
+      "comment": "Foerderung noch nicht gesichert",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "finance_id": "FIN-W2-SUB",
@@ -713,7 +856,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "0",
       "status": "erwartet",
       "source": "Status_Buero(kratie)_20260711.pdf",
-      "comment": "bei Wohnsitzverlegung ggf. anders"
+      "comment": "bei Wohnsitzverlegung ggf. anders",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "finance_id": "FIN-ZDL",
@@ -724,7 +869,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "25",
       "status": "offen",
       "source": "Status_Buero(kratie)_20260711.pdf",
-      "comment": "bis 250.000 EUR, var. 2,75%, fix 4%, Rueckverguetung bis 2.400 EUR/a fuer 10 Jahre laut Notiz"
+      "comment": "bis 250.000 EUR, var. 2,75%, fix 4%, Rueckverguetung bis 2.400 EUR/a fuer 10 Jahre laut Notiz",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "finance_id": "FIN-REST",
@@ -735,7 +882,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "term_years": "25",
       "status": "offen",
       "source": "Berechnung aus Grobkosten",
-      "comment": "Restlicher Kreditbedarf nach ZDL Arbeitsannahme"
+      "comment": "Restlicher Kreditbedarf nach ZDL Arbeitsannahme",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "bank_offers": [
@@ -792,7 +941,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "offen",
       "deadline": "",
       "requirements": "EEVE, Baukonzession, Verpflichtungserklaerung, Unterlagen",
-      "comment": "kein ZDL laut Notiz"
+      "comment": "kein ZDL laut Notiz",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "subsidy_id": "SUB-W2-MAX",
@@ -803,7 +954,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "offen",
       "deadline": "",
       "requirements": "Wohnsitz/EEVE/Unterlagen",
-      "comment": "21.800 bis 28.000 je Wohnsitzverlegung laut Notiz"
+      "comment": "21.800 bis 28.000 je Wohnsitzverlegung laut Notiz",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "subsidy_id": "SUB-ZDL",
@@ -814,7 +967,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "offen",
       "deadline": "",
       "requirements": "Wohnbauförderung/Bauk. Unterlagen",
-      "comment": "bis 250k, 2.75%/4%, Rueckverguetung bis 2400 EUR/a"
+      "comment": "bis 250k, 2.75%/4%, Rueckverguetung bis 2400 EUR/a",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "timeline_tasks": [
@@ -833,7 +988,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "Projektstart"
+      "comment": "Projektstart",
+      "task_type": "Termin",
+      "description": "Erste Besprechung mit Architekt Klement: 2 Wohnungen, Aufteilung EG haelfte-haelfte, W1 Bestand erhalten, W2 mit 2 Kinderzimmern.",
+      "is_blocker": "FALSE",
+      "category_id": "CAT-GRUND",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-DP-EINREICH",
@@ -850,7 +1011,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "",
       "linked_cost_id": "C-GEM-001",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "100 EUR bezahlt"
+      "comment": "100 EUR bezahlt",
+      "task_type": "Termin",
+      "description": "Aenderung des Durchfuehrungsplans der Wohnbauzone Hintersun Baulos A bei der Gemeinde Natz-Schabs eingereicht.",
+      "is_blocker": "FALSE",
+      "category_id": "CAT-BUERO",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-EINREICH",
@@ -867,7 +1034,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Baukonzession",
       "linked_cost_id": "C-GEM-002",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "Einreichprojekt abgegeben 24.03.2026"
+      "comment": "Einreichprojekt abgegeben 24.03.2026",
+      "task_type": "Vorgang",
+      "description": "Einreichprojekt (Vor-/Einreichprojekt, Technischer Bericht, Procura) bei der Gemeinde abgegeben und wieder abgeholt.",
+      "is_blocker": "FALSE",
+      "category_id": "CAT-BUERO",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-UNBED",
@@ -884,7 +1057,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Notar, Schenkung, Verpflichtungserklaerung, Foerderantrag",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-BUER",
-      "comment": "Blockiert Notartermin"
+      "comment": "Blockiert Notartermin",
+      "task_type": "Vorgang",
+      "description": "Wegen Wohnbaufoerderungsbindung aus 1999 im Grundbuch muss die Provinz, danach die Gemeinde, eine Unbedenklichkeitserklaerung ausstellen. Blockiert den Notartermin.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-BUERO",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-EEVE-I",
@@ -901,7 +1080,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Foerderantrag",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-BUER",
-      "comment": "Termin laut Notiz"
+      "comment": "Termin laut Notiz",
+      "task_type": "Termin",
+      "description": "Einkommens-/Vermoegenserklaerung (EEVE) 2025 fuer Ingrid Harder, Voraussetzung fuer den Foerderantrag.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-BUERO",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-EEVE-M",
@@ -918,7 +1103,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Foerderantrag",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-BUER",
-      "comment": "Termin laut Notiz"
+      "comment": "Termin laut Notiz",
+      "task_type": "Termin",
+      "description": "Einkommens-/Vermoegenserklaerung (EEVE) 2025 fuer Maximilian Hofer, Voraussetzung fuer den Foerderantrag.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-BUERO",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-NOTAR",
@@ -935,7 +1126,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Foerderantrag, Umschreibung Baukonzession",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-BUER",
-      "comment": "ab 13. Juli geplant"
+      "comment": "ab 13. Juli geplant",
+      "task_type": "Vorgang",
+      "description": "Schenkungsvertrag und Verpflichtungserklaerung unterzeichnen, Grundbuchsantrag/Eintragung veranlassen. Wartet auf Unbedenklichkeitserklaerung der Gemeinde.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-BUERO",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-FOERD",
@@ -952,7 +1149,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Baustart 30 Tage Wartefrist",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-BUER",
-      "comment": "ab Mitte Juli laut Notiz"
+      "comment": "ab Mitte Juli laut Notiz",
+      "task_type": "Vorgang",
+      "description": "Unterlagen pruefen (Personalausweis, Sprachgruppenzugehoerigkeit, Projekt-PDF, Baukonzession, Benuetzungsgenehmigung, Technischer Bericht, Kubaturberechnung, Tausendsteltabelle, Detaillierte Kostenschaetzung, Schenkungsvertrag, Verpflichtungserklaerung) und ab Mitte Juli 2026 einreichen.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-FOERD",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-WAIT30",
@@ -969,7 +1172,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Baubeginn",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-BUER",
-      "comment": "Nach Antrag/Genehmigung 30 Tage warten laut Notiz"
+      "comment": "Nach Antrag/Genehmigung 30 Tage warten laut Notiz",
+      "task_type": "Vorgang",
+      "description": "Nach Genehmigung der Foerderung muss 30 Tage gewartet werden, bevor der Bau beginnen darf.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-FOERD",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-SIGEKO",
@@ -986,7 +1195,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Baubeginn",
       "linked_cost_id": "C-SIGEKO-001",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "gesetzlich erforderlich vor Baubeginn"
+      "comment": "gesetzlich erforderlich vor Baubeginn",
+      "task_type": "Vorgang",
+      "description": "Gesetzlich erforderlich vor Baubeginn. Anbieter noch offen, Kosten noch nicht eingeholt.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-ARCH",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-BAU-AUSS",
@@ -1003,7 +1218,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Baubeginn/Kostenplan",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "Felderer, Widmann, Arnold, Salcher"
+      "comment": "Felderer, Widmann, Arnold, Salcher",
+      "task_type": "Vorgang",
+      "description": "Potenzielle Firmen: Felderer Bau, Widmann Bau, Arnold Bau, Salcher Bau. Offene Entscheidung: Holztreppe EG-1.OG erhalten oder durch Betontreppe ersetzen (Schallschutz).",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-AUSSCH",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-HLS-AUSS",
@@ -1020,7 +1241,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "WP/Pellet/PV/Elektroplanung",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "Thaler, Heizlast, Lueftung, Sanitaer"
+      "comment": "Thaler, Heizlast, Lueftung, Sanitaer",
+      "task_type": "Vorgang",
+      "description": "Anbieter Thaler. Zu klaeren: Lueftungskonzept (dezentral/zentral), Heizungsleistung, Sanitaergegenstaende, Staubsaugeranlage.",
+      "is_blocker": "FALSE",
+      "category_id": "CAT-AUSSCH",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-ELT-AUSS",
@@ -1037,7 +1264,13 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "PV/Batterie/WP/KNX Entscheidung",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "Stampfl Brunner"
+      "comment": "Stampfl Brunner",
+      "task_type": "Vorgang",
+      "description": "Anbieter Stampfl Brunner. Zu klaeren: Groesse PV-Anlage, Batteriespeicher, Bus-/KNX-System.",
+      "is_blocker": "FALSE",
+      "category_id": "CAT-AUSSCH",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "task_id": "T-BAUBEGINN",
@@ -1054,7 +1287,243 @@ window.HINTERSUN_SAMPLE_DATA = {
       "blocks": "Bauphase",
       "linked_cost_id": "",
       "document_id": "DOC-STATUS-ARCH",
-      "comment": "September 2026 als vorlaeufiges Ziel"
+      "comment": "September 2026 als vorlaeufiges Ziel",
+      "task_type": "Termin",
+      "description": "Voraussetzung: Foerderantrag genehmigt + 30 Tage Wartefrist, Hauptgewerke vergeben, SiGeKo beauftragt. Nur vorlaeufiges Ziel, noch nicht bestaetigt.",
+      "is_blocker": "TRUE",
+      "category_id": "CAT-BAU",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-BANK-3-VOLKSBANK",
+      "phase": "Buerokratie",
+      "category_id": "CAT-FOERD",
+      "workstream": "Finanzierung",
+      "task": "3. Banktermin Volksbank - Foerdersimulation",
+      "owner": "Hma, Ingrid Harder",
+      "start_date": "2026-02-12",
+      "due_date": "2026-02-12",
+      "status": "erledigt",
+      "priority": "mittel",
+      "progress_weight": "2",
+      "depends_on": "",
+      "blocks": "",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Foerdersimulation nach neuem Wohnbaugesetz: Geschenktes Geld 24.000 EUR, zinsbeguenstigtes Darlehen bis 250.000 EUR (var. 2,75% / fix 4%).",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-BUER",
+      "comment": "Volksbank",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-WOHNBAUAMT",
+      "phase": "Buerokratie",
+      "category_id": "CAT-FOERD",
+      "workstream": "Foerderung",
+      "task": "Termin Wohnbauamt Bozen - Foerderberatung",
+      "owner": "Hma, Ingrid Harder",
+      "start_date": "2026-03-12",
+      "due_date": "2026-03-12",
+      "status": "erledigt",
+      "priority": "hoch",
+      "progress_weight": "3",
+      "depends_on": "",
+      "blocks": "",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Beratung/Simulation aller Wohnbaufoerderungs-Arten. Ergebnis: Hma Foerderung 21.800 EUR (28.000 EUR bei Wohnsitzverlegung), Ingrid Harder kein Anrecht auf zinsbeguenstigtes Darlehen, Schenkung auch fuer Alexa moeglich.",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-BUER",
+      "comment": "Reservierungscode 02378, Flavia Vanzetta",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-BAUSITZUNG",
+      "phase": "Buerokratie",
+      "category_id": "CAT-BUERO",
+      "workstream": "Gemeinde",
+      "task": "Bausitzung Gemeinde Natz-Schabs - Projektgenehmigung",
+      "owner": "Gemeinde Natz-Schabs",
+      "start_date": "2026-04-28",
+      "due_date": "2026-04-28",
+      "status": "erledigt",
+      "priority": "kritisch",
+      "progress_weight": "6",
+      "depends_on": "T-EINREICH",
+      "blocks": "Baukonzession",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Projekt mit Auflage genehmigt: Unterschrift der unteren Nachbarn wegen Garage/grossem Dach erforderlich. Frist 15.05.2026, erfuellt.",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-ARCH",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-KREDIT-VOLKSBANK",
+      "phase": "Buerokratie",
+      "category_id": "CAT-FOERD",
+      "workstream": "Finanzierung",
+      "task": "Kreditangebot Volksbank einholen",
+      "owner": "Katja Gasser (Volksbank)",
+      "start_date": "2026-05-03",
+      "due_date": "2026-05-03",
+      "status": "erledigt",
+      "priority": "hoch",
+      "progress_weight": "3",
+      "depends_on": "",
+      "blocks": "",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Kreditanfrage fuer Hofer Maximilian und Ingrid Harder gemeinsam.",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-BUER",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-KREDIT-RAIFFEISEN",
+      "phase": "Buerokratie",
+      "category_id": "CAT-FOERD",
+      "workstream": "Finanzierung",
+      "task": "Kreditangebot Raiffeisen einholen",
+      "owner": "Christoph Noessing (Raiffeisen)",
+      "start_date": "2026-05-11",
+      "due_date": "2026-05-11",
+      "status": "erledigt",
+      "priority": "hoch",
+      "progress_weight": "3",
+      "depends_on": "",
+      "blocks": "",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Kreditanfrage nur fuer Hofer Maximilian. 250.000 EUR zu 2,75% nach Landesgesetz moeglich.",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-BUER",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-NOTAR-TAUSENDSTEL",
+      "phase": "Buerokratie",
+      "category_id": "CAT-FOERD",
+      "workstream": "Notar",
+      "task": "Notartermin - Tausendstelaufteilung",
+      "owner": "Tschurtschenthaler (Notarin)",
+      "start_date": "2026-06-04",
+      "due_date": "2026-06-04",
+      "status": "erledigt",
+      "priority": "hoch",
+      "progress_weight": "4",
+      "depends_on": "",
+      "blocks": "Schenkung",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Tausendstelaufteilung durch Architekt Klement erstellt (W1 466, W2 534) und mit Notarin abgestimmt. Voraussetzung fuer Schenkungsvertrag.",
+      "linked_cost_id": "",
+      "document_id": "DOC-TAUSENDSTEL",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-NOTAR-1",
+      "phase": "Buerokratie",
+      "category_id": "CAT-FOERD",
+      "workstream": "Notar",
+      "task": "1. Notartermin",
+      "owner": "Ingrid Harder, Hma, Tschurtschenthaler",
+      "start_date": "2026-06-11",
+      "due_date": "2026-06-11",
+      "status": "erledigt",
+      "priority": "kritisch",
+      "progress_weight": "4",
+      "depends_on": "T-NOTAR-TAUSENDSTEL",
+      "blocks": "",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Grundbuch weist Wohnbaufoerderungsbindung aus 1999 sowie Hypothek aus 2011 auf. Fuer Schenkung ist Unbedenklichkeitserklaerung der Provinz und Gemeinde noetig - 2. Termin musste deshalb verschoben werden.",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-BUER",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-BAUVERSICHERUNG",
+      "phase": "Buerokratie",
+      "category_id": "CAT-BUERO",
+      "workstream": "Versicherung",
+      "task": "Bauversicherung anfragen (Allianz)",
+      "owner": "Hma",
+      "start_date": "2026-03-25",
+      "due_date": "2026-03-25",
+      "status": "wartet auf Dritte",
+      "priority": "mittel",
+      "progress_weight": "2",
+      "depends_on": "",
+      "blocks": "",
+      "is_blocker": "FALSE",
+      "task_type": "Termin",
+      "description": "Anfrage bei Allianz - Klapfer & Pattis in Brixen fuer Bauversicherung/Rechtsschutz.",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-BUER",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-BLITZSCHUTZ",
+      "phase": "Planung",
+      "category_id": "CAT-ARCH",
+      "workstream": "Elektro",
+      "task": "Blitzschutzberechnung beauftragen",
+      "owner": "Elektrotechniker (offen)",
+      "start_date": "2026-07-13",
+      "due_date": "2026-08-15",
+      "status": "offen",
+      "priority": "hoch",
+      "progress_weight": "2",
+      "depends_on": "",
+      "blocks": "Baukonzession",
+      "is_blocker": "FALSE",
+      "task_type": "Vorgang",
+      "description": "Kosten ca. 350 EUR netto. Wird fuer die Baukonzession benoetigt.",
+      "linked_cost_id": "C-BLITZ-001",
+      "document_id": "DOC-STATUS-ARCH",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "task_id": "T-AUSSCHR-FENSTER",
+      "phase": "Ausschreibung",
+      "category_id": "CAT-AUSSCH",
+      "workstream": "Fenster",
+      "task": "Ausschreibung Fenster",
+      "owner": "Architekt Klement",
+      "start_date": "2026-07-13",
+      "due_date": "2026-08-31",
+      "status": "offen",
+      "priority": "hoch",
+      "progress_weight": "5",
+      "depends_on": "",
+      "blocks": "",
+      "is_blocker": "FALSE",
+      "task_type": "Vorgang",
+      "description": "Potenzielle Firmen: Wolf, TipTop, Suedtirol Fenster. Grosses Sparpotential 40.000-50.000 EUR je nach EG-Fensterentscheidung (ersetzen vs. Bestand).",
+      "linked_cost_id": "",
+      "document_id": "DOC-STATUS-ARCH",
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "trades": [
@@ -1067,7 +1536,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Baubeginn",
       "status": "offen",
       "blocks_construction_start": "TRUE",
-      "comment": "gesetzlich erforderlich vor Baubeginn"
+      "comment": "gesetzlich erforderlich vor Baubeginn",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-BAU",
@@ -1078,7 +1549,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor September",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "TRUE",
-      "comment": "Hauptgewerk"
+      "comment": "Hauptgewerk",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-FEN",
@@ -1089,7 +1562,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Ausfuehrung Huelle",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "FALSE",
-      "comment": "EG-Fenster/Klimahaus/Zero-Verglasung/Raffstores klaeren"
+      "comment": "EG-Fenster/Klimahaus/Zero-Verglasung/Raffstores klaeren",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-ZIM",
@@ -1100,7 +1575,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Dachphase",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "FALSE",
-      "comment": "Dachfenster mit Verschattungsrollos"
+      "comment": "Dachfenster mit Verschattungsrollos",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-SPEN",
@@ -1111,7 +1588,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "mit Dachplanung",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "FALSE",
-      "comment": "Aluminium-Blechdach empfohlen"
+      "comment": "Aluminium-Blechdach empfohlen",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-HLS",
@@ -1122,7 +1601,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Technikplanung",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "TRUE",
-      "comment": "Lueftung, WP, Pellet, Sanitaer"
+      "comment": "Lueftung, WP, Pellet, Sanitaer",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-ELT",
@@ -1133,7 +1614,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Technikplanung",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "TRUE",
-      "comment": "PV, Batterie, KNX, Wallbox, Blitzschutz"
+      "comment": "PV, Batterie, KNX, Wallbox, Blitzschutz",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-SCHL",
@@ -1144,7 +1627,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Carport/Gelaender",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "FALSE",
-      "comment": "Carport Stahlkonstruktion empfohlen"
+      "comment": "Carport Stahlkonstruktion empfohlen",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-BODEN",
@@ -1155,7 +1640,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Innenausbau",
       "status": "Eigenvergabe",
       "blocks_construction_start": "FALSE",
-      "comment": "Balkonbelag und Aufbau klaeren"
+      "comment": "Balkonbelag und Aufbau klaeren",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-MAL",
@@ -1166,7 +1653,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "nach Rohinstallation",
       "status": "Ausschreibung offen",
       "blocks_construction_start": "FALSE",
-      "comment": "Rogen Martin"
+      "comment": "Rogen Martin",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "trade_id": "TR-TISCH",
@@ -1177,7 +1666,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "target_award": "vor Innenausbau",
       "status": "Eigenvergabe",
       "blocks_construction_start": "FALSE",
-      "comment": "Innentueren, Tischler"
+      "comment": "Innentueren, Tischler",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "companies": [
@@ -1189,7 +1680,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-WIDMANN",
@@ -1199,7 +1692,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-ARNOLD",
@@ -1209,7 +1704,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-SALCHER",
@@ -1219,7 +1716,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": "Schallschutz pruefen"
+      "comment": "Schallschutz pruefen",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-WOLF",
@@ -1229,7 +1728,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-TIPTOP",
@@ -1239,7 +1740,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-STFEN",
@@ -1249,7 +1752,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-SILGONER",
@@ -1259,7 +1764,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-BODNER",
@@ -1269,7 +1776,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-OBERRAUCHZ",
@@ -1279,7 +1788,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-BRUGGER",
@@ -1289,7 +1800,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-OBERRAUCHS",
@@ -1299,7 +1812,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-DORFMANN",
@@ -1309,7 +1824,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-PUTZER",
@@ -1319,7 +1836,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-STAMPFLSPEN",
@@ -1329,7 +1848,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-THALER",
@@ -1339,7 +1860,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": "Bestandsheizung/Installateur"
+      "comment": "Bestandsheizung/Installateur",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-STAMPFLBR",
@@ -1349,7 +1872,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-KREITHNER",
@@ -1359,7 +1884,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-GAMPER",
@@ -1369,7 +1896,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-PLOSE",
@@ -1379,7 +1908,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "company_id": "COMP-ROGEN",
@@ -1389,7 +1920,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "status": "Liste",
       "offer_id": "",
       "final": "FALSE",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "bureaucracy": [
@@ -1754,7 +2287,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "depends_on": "Architektur/Kosten/Baumeister",
       "cost_impact": "mittel-hoch",
       "energy_impact": "gering",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "decision_id": "DEC-FEN-EG",
@@ -1768,7 +2303,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "depends_on": "Klimahaus, Zustand Bestand",
       "cost_impact": "hoch",
       "energy_impact": "hoch",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "decision_id": "DEC-LUEFTUNG",
@@ -1782,7 +2319,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "depends_on": "Haustechnik/Energieeffizienz",
       "cost_impact": "mittel",
       "energy_impact": "mittel",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "decision_id": "DEC-WP",
@@ -1796,7 +2335,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "depends_on": "Heizlast, HLS, PV",
       "cost_impact": "hoch",
       "energy_impact": "hoch",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "decision_id": "DEC-PV",
@@ -1810,7 +2351,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "depends_on": "Dachflaeche, Statik, Energiebedarf",
       "cost_impact": "mittel",
       "energy_impact": "hoch",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "decision_id": "DEC-BAT",
@@ -1824,7 +2367,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "depends_on": "PV-Konzept/Budget",
       "cost_impact": "mittel",
       "energy_impact": "mittel",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     },
     {
       "decision_id": "DEC-KUECHE",
@@ -1838,7 +2383,9 @@ window.HINTERSUN_SAMPLE_DATA = {
       "depends_on": "Kuechenplanung",
       "cost_impact": "mittel",
       "energy_impact": "gering",
-      "comment": ""
+      "comment": "",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ],
   "offer_items": [
@@ -1946,6 +2493,104 @@ window.HINTERSUN_SAMPLE_DATA = {
       "sheet": "all",
       "row_id": "",
       "details": "Initiale Paketdaten aus Projektunterlagen und Notizen"
+    }
+  ],
+  "budget_estimates": [
+    {
+      "estimate_id": "EST-ROHBAU-V1",
+      "budget_block": "Rohbau & Hauptgewerke",
+      "category": "Rohbau & Hauptgewerke",
+      "version": "v1 Grob",
+      "estimate_type": "Grobkostenschaetzung",
+      "amount_net": "",
+      "vat_rate": "",
+      "amount_gross": "620000",
+      "is_baseline": "TRUE",
+      "active": "TRUE",
+      "share_w1": "25.8",
+      "share_w2": "74.2",
+      "date": "2026-03-12",
+      "status": "aktiv",
+      "source": "Kreditangebot-Vorbereitung/Bankgespraech",
+      "comment": "Grobe Kostenschaetzung je Wohnung (Wohnung A/Ingrid 160.000, Wohnung B/Maximilian 460.000) - deckt Baumeister/Zimmerer/Fenster/Spengler/Hydrauliker/Elektriker/Schlosser/Maler etc. bis Ausschreibungen vorliegen",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "estimate_id": "EST-INNEN-V1",
+      "budget_block": "Innenausbau",
+      "category": "Innenausbau",
+      "version": "v1 Grob",
+      "estimate_type": "Grobkostenschaetzung",
+      "amount_net": "",
+      "vat_rate": "",
+      "amount_gross": "29000",
+      "is_baseline": "TRUE",
+      "active": "TRUE",
+      "share_w1": "0",
+      "share_w2": "100",
+      "date": "2026-03-20",
+      "status": "aktiv",
+      "source": "Mittel aus Kuechenangeboten Resch/Stampfl",
+      "comment": "Platzhalter bis Kuechenvergabe erfolgt; wird durch Auftrag ersetzt",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    }
+  ],
+  "task_categories": [
+    {
+      "category_id": "CAT-GRUND",
+      "name": "Grundlagen",
+      "color": "#8A6FA8",
+      "sort": "1",
+      "comment": "Vertraege, Schenkung, Grundbuch",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "category_id": "CAT-BUERO",
+      "name": "Buerokratie",
+      "color": "#A9791F",
+      "sort": "2",
+      "comment": "Gemeinde, Provinz, EEVE, Foerderantraege",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "category_id": "CAT-ARCH",
+      "name": "Planung",
+      "color": "#2F5D62",
+      "sort": "3",
+      "comment": "Architekt, Statik, Techniker",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "category_id": "CAT-AUSSCH",
+      "name": "Ausschreibung",
+      "color": "#3E6B8B",
+      "sort": "4",
+      "comment": "Anfragen, Angebote, Vergaben",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "category_id": "CAT-BAU",
+      "name": "Bau",
+      "color": "#B4682E",
+      "sort": "5",
+      "comment": "Bauvorgang auf der Baustelle",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "category_id": "CAT-FOERD",
+      "name": "Foerderung",
+      "color": "#3C7A4E",
+      "sort": "6",
+      "comment": "Wohnbaufoerderung, Landesdarlehen, Notar",
+      "created_at": "2026-07-13T00:00:00.000Z",
+      "updated_at": "2026-07-13T00:00:00.000Z"
     }
   ]
 };
