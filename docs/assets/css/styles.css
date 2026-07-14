@@ -391,3 +391,13 @@ th.w1cell,th.w2cell{font-weight:600}
   .g-name-head,.g-name{flex-basis:120px}
   .ampel-grid{grid-template-columns:1fr 1fr}
 }
+
+/* ===== v4: Saldo, Trade-Award ===== */
+.saldo-box{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:12px;border:1px solid var(--line)}
+.saldo-box.ok{background:var(--ok-soft)}
+.saldo-box.warn{background:var(--w1-soft)}
+.saldo-amount{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--ink);line-height:1}
+.saldo-dir{font-size:13.5px;color:var(--ink)}
+.trade-award-card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px;background:var(--surface-2)}
+.trade-award-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.trade-award-head strong{font-size:14.5px}
