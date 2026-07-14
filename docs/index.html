@@ -67,8 +67,12 @@
       </div>
 
       <div class="grid two mt">
-        <div class="card"><div class="card-head"><h3>Prognose nach Budgetblock</h3></div><div class="chart-box"><canvas id="chart-costs"></canvas></div></div>
+        <div class="card"><div class="card-head"><h3>Kostenschätzung vs. Ist · W1/W2</h3></div><div class="chart-box"><canvas id="chart-cost-compare"></canvas></div></div>
         <div class="card"><div class="card-head"><h3>Finanzierungsbausteine</h3></div><div class="chart-box"><canvas id="chart-finance"></canvas></div></div>
+      </div>
+      <div class="grid two mt">
+        <div class="card"><div class="card-head"><h3>Prognose nach Budgetblock</h3></div><div class="chart-box"><canvas id="chart-costs"></canvas></div></div>
+        <div class="card"><div class="card-head"><h3>Nächste Termine</h3><span class="card-hint">Ausschnitt Zeitplan</span></div><div id="overview-timeline"></div></div>
       </div>
     </section>
 
@@ -103,6 +107,7 @@
     <section id="tab-costs" class="tab">
       <div class="topbar"><div><h2 data-eyebrow="Ist-Ausgaben">Kosten (Ist)</h2><p>Tatsächliche Ausgaben mit Zahler, variablem Kostenschlüssel je Position und laufendem Saldo zwischen W1 und W2.</p></div></div>
       <div id="cost-summary"></div>
+      <div class="card mt"><div class="card-head"><h3>Budgetblöcke · Schätzung vs. Ist</h3><span class="card-hint">dieselben Blöcke wie Kostenschätzung</span></div><div id="budget-blocks-costs"></div></div>
       <div class="card mt"><div class="card-head"><h3>Saldo zwischen W1 und W2</h3><span class="card-hint">Wer hat für wen vorgestreckt</span></div><div id="saldo-panel"></div></div>
       <div class="card mt"><div class="card-head"><h3>Tatsächliche Ausgaben</h3></div><div id="cost-positions-table"></div></div>
       <div class="card mt"><div class="card-head"><h3>Zahlungen</h3></div><div id="payments-table"></div></div>
