@@ -99,18 +99,32 @@
       };
       return blocks[name];
     }
-    // Schätzungen: Baseline (is_baseline=TRUE) getrennt von aktueller aktiver Version
+    // Schätzungen: je Budgetblock die einzelnen Positionen SUMMIEREN.
+    // Mehrere Versionen derselben Position (gleiche category im selben Block)
+    // -> nur die neueste/höchste zählt (max), damit Detail eine Grobposition ersetzt.
+    var estBaseGroups = {}, estActiveGroups = {};
     estimates.forEach(function (e) {
-      var b = block(e.budget_block);
-      var g = n(e.amount_gross);
-      var sp = splitPctOf(e);
+      var blk = e.budget_block || 'Sonstiges';
+      var posKey = blk + '||' + (e.category || e.estimate_id); // Position innerhalb des Blocks
+      var g = n(e.amount_gross), sp = splitPctOf(e);
+      var entry = { g: g, w1: g * sp.w1 / 100, w2: g * sp.w2 / 100, version: e.version, date: e.date, block: blk };
       if (isTrue(e.is_baseline)) {
-        if (g >= b.baseline) { b.baseline = g; b.baselineW1 = g * sp.w1 / 100; b.baselineW2 = g * sp.w2 / 100; b.baselineVersion = e.version; b.baselineDate = e.date; }
+        var pb = estBaseGroups[posKey];
+        if (!pb || g >= pb.g) estBaseGroups[posKey] = entry; // neueste Version der Position
       }
       if (isActive(e)) {
-        if (g >= b.estimate) { b.estimate = g; b.estimateW1 = g * sp.w1 / 100; b.estimateW2 = g * sp.w2 / 100; b.currentEstVersion = e.version; b.currentEstDate = e.date; }
-        if (!isTrue(e.is_baseline)) b.hasDetail = true;
+        var pa = estActiveGroups[posKey];
+        if (!pa || g >= pa.g) estActiveGroups[posKey] = entry;
+        if (!isTrue(e.is_baseline)) block(blk).hasDetail = true;
       }
+    });
+    Object.keys(estBaseGroups).forEach(function (k) {
+      var e = estBaseGroups[k], b = block(e.block);
+      b.baseline += e.g; b.baselineW1 += e.w1; b.baselineW2 += e.w2; b.baselineVersion = e.version; b.baselineDate = e.date;
+    });
+    Object.keys(estActiveGroups).forEach(function (k) {
+      var e = estActiveGroups[k], b = block(e.block);
+      b.estimate += e.g; b.estimateW1 += e.w1; b.estimateW2 += e.w2; b.currentEstVersion = e.version; b.currentEstDate = e.date;
     });
     // Kostenpositionen nach Stufe (mit W1/W2-Anteil je Zeile)
     costs.forEach(function (c) {
@@ -268,6 +282,30 @@
     return { zeit: zeit, kosten: kosten, buero: buero, vergabe: vergabe, overall: overall };
   }
 
+  // ---------- Saldo zwischen W1 und W2 (wer hat für wen vorgestreckt) ----
+  // Für jede bezahlte Ist-Position: Zahler trägt den vollen Betrag, geschuldet
+  // ist aber nur der eigene Kostenschlüssel-Anteil. Differenz = Ausgleich.
+  function calcSaldo(data) {
+    var costs = (data.cost_positions || []).filter(function (c) { return isTrue(c.paid) || low(c.status).indexOf('bezahlt') >= 0; });
+    var paidByW1 = 0, paidByW2 = 0, oweW1 = 0, oweW2 = 0;
+    var rows = [];
+    costs.forEach(function (c) {
+      var g = n(c.gross);
+      var pb = low(c.paid_by || '');
+      var payer = (pb.indexOf('ingrid') >= 0 || pb === 'w1') ? 'W1' : ((pb.indexOf('maxi') >= 0 || pb === 'w2') ? 'W2' : '');
+      var w1 = shareOf(c, 'w1'), w2 = shareOf(c, 'w2');
+      if (payer === 'W1') paidByW1 += g; else if (payer === 'W2') paidByW2 += g;
+      oweW1 += w1; oweW2 += w2;
+      rows.push({ item: c.item, gross: g, payer: payer, shareW1: w1, shareW2: w2, date: c.date, paidBy: c.paid_by });
+    });
+    var balanceW1 = paidByW1 - oweW1; // >0: W1 hat zu viel getragen
+    var settle = balanceW1;           // Betrag, den W2 an W1 zahlen muss (wenn >0)
+    return { paidByW1: paidByW1, paidByW2: paidByW2, oweW1: oweW1, oweW2: oweW2,
+      balanceW1: balanceW1, settle: settle, rows: rows,
+      direction: settle > 0.5 ? 'W2→W1' : (settle < -0.5 ? 'W1→W2' : 'ausgeglichen'),
+      amount: Math.abs(settle) };
+  }
+
   // ---------- Energie (dynamisch aus energy_inputs, formelbasiert) ------
   // overrides erlaubt Live-Schieberegler ohne Sheet-Schreibzugriff bei
   // jeder Bewegung: dieselbe Formel, nur mit temporär ersetzten Werten.
@@ -366,7 +404,7 @@
   window.HinterSunCalc = {
     euro: euro, num: n, pct: pct, settingsObj: settingsObj, clamp: clamp, shareOf: shareOf, splitPctOf: splitPctOf,
     calcProgress: calcProgress, calcBudget: calcBudget, calcCosts: calcCosts, compareGroups: compareGroups,
-    calcFinancing: calcFinancing, calcAmpel: calcAmpel, calcEnergy: calcEnergy, scenarios: scenarios,
+    calcFinancing: calcFinancing, calcAmpel: calcAmpel, calcSaldo: calcSaldo, calcEnergy: calcEnergy, scenarios: scenarios,
     monthlyPV: monthlyPV, monthlyLoad: monthlyLoad, annuity: annuity
   };
 })();

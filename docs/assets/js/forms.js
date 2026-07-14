@@ -13,6 +13,8 @@
     'blockiert','erledigt','Rechnung erhalten','bezahlt','verworfen'];
   var PRIO = ['kritisch','hoch','mittel','niedrig'];
   var PARTY = ['W1','W2','gemeinsam','projekt'];
+  var OWNERS = ['Maximilian Hofer','Ingrid Harder','gemeinsam','Architekt Klement','Statiker Troger',
+    'Gemeinde Natz-Schabs','Notarin Tschurtschenthaler','Bank','Techniker','offen'];
   var BOOL = ['TRUE','FALSE'];
   var SOURCETYPE = ['Grobkostenschätzung','Detailkostenschätzung','Angebot','Auftrag','Rechnung','Zahlung','Ist','Prognose'];
 
@@ -108,15 +110,11 @@
       { k: 'task_type', l: 'Typ', t: 'select', opt: ['Termin','Vorgang'], def: 'Vorgang', hint: 'Termin = fixes Datum (Meilenstein); Vorgang = Zeitraum mit Dauer' },
       { k: 'task', l: 'Aufgabe', t: 'text', req: true },
       { k: 'description', l: 'Beschreibung', t: 'textarea' },
-      { k: 'owner', l: 'Verantwortlich', t: 'text' },
+      { k: 'owner', l: 'Verantwortlich', t: 'select', opt: OWNERS },
       { k: 'start_date', l: 'Start / Datum', t: 'date' },
       { k: 'due_date', l: 'Ende / Deadline (bei Termin = Start)', t: 'date' },
       { k: 'status', l: 'Status', t: 'select', opt: STATUS },
       { k: 'priority', l: 'Priorität', t: 'select', opt: PRIO },
-      { k: 'progress_weight', l: 'Gewicht', t: 'number', def: 1 },
-      { k: 'depends_on', l: 'Hängt ab von (Task-ID)', t: 'text' },
-      { k: 'blocks', l: 'Blockiert', t: 'text' },
-      { k: 'is_blocker', l: 'Blocker', t: 'bool', def: 'FALSE' },
       { k: 'comment', l: 'Notiz', t: 'textarea' }
     ]},
     task_categories: { title: 'Kategorie', fields: [
@@ -199,7 +197,10 @@
       return '<div class="field"><label>' + esc(f.l) + '</label><input type="color" name="' + f.k + '" value="' + esc(cv) + '" style="height:40px;padding:2px"></div>';
     }
     if (f.t === 'select') {
-      var opts = (f.opt || []).map(function (o) { return '<option ' + (String(v) === String(o) ? 'selected' : '') + '>' + esc(o) + '</option>'; }).join('');
+      var optlist = (f.opt || []).slice();
+      var hasV = optlist.some(function (o) { return String(o) === String(v); });
+      if (v && !hasV) optlist.push(v); // vorhandenen Wert behalten, auch wenn nicht in Liste
+      var opts = optlist.map(function (o) { return '<option ' + (String(v) === String(o) ? 'selected' : '') + '>' + esc(o) + '</option>'; }).join('');
       return '<div class="field"><label>' + esc(f.l) + '</label><select name="' + f.k + '"><option value=""></option>' + opts + '</select>' + hint + '</div>';
     }
     if (f.t === 'bool') {

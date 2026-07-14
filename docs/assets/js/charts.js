@@ -29,6 +29,17 @@
 
     make('chart-finance', 'bar', { labels: ['Eigenkapital', 'Förderungen', 'Kredite', 'Lücke'], datasets: [{ label: 'EUR', data: [fin.equity, fin.confirmedSubs, fin.confirmedLoans, fin.gap], backgroundColor: ['#66e3c4', '#51d88a', '#5fb1ff', '#ff6b6b'] }] }, { plugins: { legend: { display: false } } });
 
+    // Finanzierung nach Typ (Detail-Tab)
+    var fgroups = { 'Eigenkapital': 0, 'Förderung': 0, 'Darlehen & Kredit': 0, 'Steuerabschreibung': 0 };
+    (data.financing || []).forEach(function (f) {
+      var t = String(f.type).toLowerCase(), amt = calc.num(f.amount);
+      if (t.indexOf('eigenkapital') >= 0) fgroups['Eigenkapital'] += amt;
+      else if (t.indexOf('förder') >= 0 || t.indexOf('zuschuss') >= 0) fgroups['Förderung'] += amt;
+      else if (t.indexOf('steuer') >= 0 || t.indexOf('bonus') >= 0) fgroups['Steuerabschreibung'] += amt;
+      else fgroups['Darlehen & Kredit'] += amt;
+    });
+    make('chart-finance-detail', 'doughnut', { labels: Object.keys(fgroups), datasets: [{ data: Object.values(fgroups), backgroundColor: ['#66e3c4', '#51d88a', '#5fb1ff', '#ffb84d'] }] }, { scales: {} });
+
     make('chart-month', 'bar', { labels: months, datasets: [{ label: 'PV', data: pv, backgroundColor: 'rgba(102,227,196,.65)' }, { label: 'Last', data: load, backgroundColor: 'rgba(95,177,255,.45)' }] }, {});
 
     make('chart-autarky', 'line', { labels: months, datasets: [

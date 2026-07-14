@@ -23,7 +23,32 @@
     decisions: 'decision_id', settings: 'key', audit_log: 'log_id'
   };
 
-  var state = { data: {}, source: '', online: false, listeners: [] };
+  var state = { data: {}, source: '', online: false, listeners: [], pending: {} };
+
+  // Rows die (noch) nicht ins Backend geschrieben werden konnten, damit sie
+  // bei einem erneuten load() nicht still verschwinden (z.B. Kategorien, wenn
+  // das Backend den Tab noch nicht kennt / offline).
+  function rememberPending(sheet, row) {
+    if (!state.pending[sheet]) state.pending[sheet] = [];
+    var f = idField(sheet);
+    var i = state.pending[sheet].findIndex(function (x) { return String(x[f]) === String(row[f]); });
+    if (i >= 0) state.pending[sheet][i] = row; else state.pending[sheet].push(row);
+  }
+  function clearPending(sheet, idVal) {
+    if (!state.pending[sheet]) return;
+    var f = idField(sheet);
+    state.pending[sheet] = state.pending[sheet].filter(function (x) { return String(x[f]) !== String(idVal); });
+  }
+  function mergePending() {
+    Object.keys(state.pending).forEach(function (sheet) {
+      var f = idField(sheet);
+      if (!Array.isArray(state.data[sheet])) state.data[sheet] = [];
+      state.pending[sheet].forEach(function (row) {
+        var exists = state.data[sheet].some(function (x) { return String(x[f]) === String(row[f]); });
+        if (!exists) state.data[sheet].push(row);
+      });
+    });
+  }
 
   function idField(sheet) { return ID_FIELDS[sheet] || 'id'; }
   function nowISO() { return new Date().toISOString(); }
@@ -53,6 +78,7 @@
     state.online = !!res.online;
     // sicherstellen, dass alle bekannten Tabs Arrays sind
     Object.keys(ID_FIELDS).forEach(function (s) { if (!Array.isArray(state.data[s])) state.data[s] = []; });
+    mergePending();
     emit();
     return state;
   }
@@ -87,10 +113,11 @@
     emit();
     if (A.hasBackend()) {
       var r = await A.appendRow(sheet, row);
-      if (r && r.ok) { if (r.id) { row[f] = r.id; emit(); } toast('Gespeichert: ' + labelOf(sheet), 'ok'); }
-      else { toast('Lokal gespeichert, Sheet-Fehler: ' + (r && r.error), 'warn'); }
+      if (r && r.ok) { if (r.id) { row[f] = r.id; emit(); } clearPending(sheet, row[f]); toast('Gespeichert: ' + labelOf(sheet), 'ok'); }
+      else { rememberPending(sheet, row); toast('Konnte nicht ins Sheet schreiben (' + (r && r.error || 'Fehler') + ') – bleibt lokal erhalten. Backend neu bereitstellen + Migration ausführen.', 'warn'); }
       return r;
     }
+    rememberPending(sheet, row);
     toast('Lokal gespeichert (kein Backend)', 'warn');
     return { ok: true, offline: true, id: row[f] };
   }
