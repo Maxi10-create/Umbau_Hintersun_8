@@ -65,9 +65,10 @@
 
     <section id="tab-time" class="tab">
       <div class="topbar"><div><h2 data-eyebrow="Terminplan">Zeitplan &amp; Aufgaben</h2><p>Echter Gantt-Zeitstrahl. Baubeginn ist setzbar und aktuell nur voraussichtlich September 2026.</p></div></div>
-      <div class="card"><h3>Zieltermine</h3><div class="controls"><div class="field"><label>Voraussichtlicher Baubeginn</label><input id="build-date" type="date"></div><div class="field"><label>Erster Bezug / Fertigstellung</label><input id="occupancy-date" type="date"></div><div class="field"><label>Filter</label><select id="gantt-filter"><option value="">alle</option><option>kritisch</option><option>hoch</option><option>Grundlagen</option><option>Buerokratie</option><option>Planung</option><option>Ausschreibung</option><option>Bau</option></select></div></div></div>
-      <div class="card" style="margin-top:16px"><h3>Gantt-Zeitstrahl</h3><div id="gantt"></div></div>
+      <div class="card"><h3>Zieltermine</h3><div class="controls"><div class="field"><label>Voraussichtlicher Baubeginn</label><input id="build-date" type="date"></div><div class="field"><label>Erster Bezug / Fertigstellung</label><input id="occupancy-date" type="date"></div><div class="field"><label>Filter</label><select id="gantt-filter"><option value="">alle Kategorien</option></select></div></div></div>
+      <div class="card" style="margin-top:16px"><h3>Gantt-Zeitstrahl</h3><p class="mini muted">Termine (fixes Datum) erscheinen als Raute ◆, Vorgänge (mit Dauer) als Balken ▬. Farbe = Hauptkategorie, Zeilen nach Kategorien gruppiert.</p><div id="gantt"></div></div>
       <div class="card" style="margin-top:16px"><h3>Aufgabenliste</h3><div id="tasks-table"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Hauptkategorien</h3><div id="task-categories-table"></div></div>
     </section>
 
     <section id="tab-trades" class="tab">
