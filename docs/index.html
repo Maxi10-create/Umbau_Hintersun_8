@@ -14,12 +14,12 @@
     <nav class="nav">
       <button class="active" data-tab="tab-overview"><span class="dot"></span>Überblick</button>
       <button data-tab="tab-project"><span class="dot"></span>Projekt &amp; Parteien</button>
-      <button data-tab="tab-costs"><span class="dot"></span>Kosten &amp; Finanzierung</button>
+      <button data-tab="tab-estimate"><span class="dot"></span>Kostenschätzung</button>
+      <button data-tab="tab-costs"><span class="dot"></span>Kosten (Ist)</button>
+      <button data-tab="tab-finance"><span class="dot"></span>Finanzierung</button>
+      <button data-tab="tab-trades"><span class="dot"></span>Gewerke &amp; Vergabe</button>
       <button data-tab="tab-time"><span class="dot"></span>Zeitplan &amp; Aufgaben</button>
-      <button data-tab="tab-trades"><span class="dot"></span>Gewerke &amp; Firmen</button>
       <button data-tab="tab-energy"><span class="dot"></span>Energie &amp; Technik</button>
-      <button data-tab="tab-scenarios"><span class="dot"></span>Szenarien &amp; Entscheidungen</button>
-      <button data-tab="tab-docs"><span class="dot"></span>Dokumente</button>
     </nav>
     <div class="side-note"><strong>Datenquelle</strong><br><span id="source-pill"><span class="status-dot"></span>Laden...</span><br><br>Backend: Google Sheets via Apps Script. CRUD schreibt direkt ins Sheet.</div>
   </aside>
@@ -44,23 +44,31 @@
       <div class="grid two"><div class="card"><h3>Wohnungen &amp; Tausendstel</h3><div id="party-table"></div></div><div class="card"><h3>Planbilder</h3><div class="image-grid"><img src="assets/img/lageplan_endstand.jpg"><img src="assets/img/grundrisse_endstand.jpg"><img src="assets/img/ansichten_schnitte_endstand.jpg"><img src="assets/img/kubatur_endstand.jpg"></div><p class="source">Bilder sind Ausschnitte aus den Planunterlagen. Original-PDFs im Dokumentenregister/Drive.</p></div></div>
     </section>
 
+    <section id="tab-estimate" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Budget-Baseline">Kostenschätzung</h2><p>Grobe Erst-Schätzung (Baseline) und detailliertere Versionen – immer getrennt nach Wohnung 1 und 2, live mit den tatsächlichen Kosten abgeglichen.</p></div></div>
+      <div id="estimate-summary"></div>
+      <div class="card" style="margin-top:16px"><h3>Schätzung vs. Ist je Budgetblock</h3><div id="budget-blocks"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Kostenschätzungen (Grob + Detail, versioniert)</h3><div id="budget-estimates-table"></div></div>
+    </section>
+
     <section id="tab-costs" class="tab">
-      <div class="topbar"><div><h2 data-eyebrow="Budget &amp; Vergabe">Kosten, Angebote &amp; Finanzierung</h2><p>Gestufte Kostenlogik: Schätzung → Angebot → Auftrag → Rechnung → Zahlung. Prognose ohne Doppelzählung.</p></div></div>
-      <div id="cost-finance-summary"></div>
-      <div class="card" style="margin-top:16px"><h3>Budgetblöcke (gestuft)</h3><div id="budget-blocks"></div></div>
-      <div class="card" style="margin-top:16px"><h3>Angebote</h3><div id="offers-table"></div></div>
-      <div class="card" style="margin-top:16px"><h3>Angebotsvergleich</h3><div id="compare-groups" class="compare-grid"></div></div>
-      <div class="card" style="margin-top:16px"><h3>Kostenpositionen</h3><div id="cost-positions-table"></div></div>
-      <div class="card" style="margin-top:16px"><h3>Kostenschätzungen (versioniert)</h3><div id="budget-estimates-table"></div></div>
+      <div class="topbar"><div><h2 data-eyebrow="Ist-Ausgaben">Kosten (Ist)</h2><p>Tatsächliche Ausgaben für Bürokratie, Planung/Architekt, Bau usw. – mit Zahler, variablem Kostenschlüssel je Position und Saldo zwischen W1 und W2.</p></div></div>
+      <div id="cost-summary"></div>
+      <div class="card" style="margin-top:16px"><h3>Saldo zwischen W1 und W2</h3><div id="saldo-panel"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Tatsächliche Ausgaben</h3><div id="cost-positions-table"></div></div>
+      <div class="card" style="margin-top:16px"><h3>Zahlungen</h3><div id="payments-table"></div></div>
+    </section>
+
+    <section id="tab-finance" class="tab">
+      <div class="topbar"><div><h2 data-eyebrow="Mittelherkunft">Finanzierung</h2><p>Eigenkapital, Förderungen (Zuschuss + zinsbegünstigtes Darlehen), Kredit und Steuerabschreibungen (Sanierung, Möbelbonus …).</p></div></div>
+      <div id="finance-summary"></div>
       <div id="finance-detail" style="margin-top:16px"></div>
-      <div class="grid two" style="margin-top:16px">
-        <div class="card"><h3>Finanzierung</h3><div id="financing-table"></div></div>
-        <div class="card"><h3>Bankangebote</h3><div id="bank-offers-table"></div></div>
-      </div>
+      <div class="card" style="margin-top:16px"><h3>Finanzierungsbausteine</h3><div id="financing-table"></div></div>
       <div class="grid two" style="margin-top:16px">
         <div class="card"><h3>Förderungen</h3><div id="subsidies-table"></div></div>
-        <div class="card"><h3>Zahlungen</h3><div id="payments-table"></div></div>
+        <div class="card"><h3>Bankangebote</h3><div id="bank-offers-table"></div></div>
       </div>
+      <div class="card" style="margin-top:16px"><h3>Finanzierungsbausteine (Grafik)</h3><div class="chart-box"><canvas id="chart-finance-detail"></canvas></div></div>
     </section>
 
     <section id="tab-time" class="tab">
@@ -72,8 +80,10 @@
     </section>
 
     <section id="tab-trades" class="tab">
-      <div class="topbar"><div><h2 data-eyebrow="Vergabe">Gewerke &amp; Firmen</h2><p>Gewerke, Firmenliste, Angebotsstatus und kritische Pfade vor Baubeginn.</p></div></div>
-      <div class="grid two"><div class="card"><h3>Gewerke-Status</h3><div id="trades-table"></div></div><div class="card"><h3>Firmenliste</h3><div id="companies-table"></div></div></div>
+      <div class="topbar"><div><h2 data-eyebrow="Vergabe">Gewerke &amp; Vergabe</h2><p>Pro Gewerk Angebote vergleichen und final vergeben. Das vergebene Angebot wird automatisch als Auftrag in „Kosten (Ist)" übernommen.</p></div></div>
+      <div class="card"><h3>Gewerke – Vergabestatus &amp; Angebotsvergleich</h3><div id="trades-award"></div></div>
+      <div class="grid two" style="margin-top:16px"><div class="card"><h3>Gewerke-Liste</h3><div id="trades-table"></div></div><div class="card"><h3>Angebote</h3><div id="offers-table"></div></div></div>
+      <div class="card" style="margin-top:16px"><h3>Firmenliste</h3><div id="companies-table"></div></div>
       <div class="card" style="margin-top:16px"><h3>Originalnotiz Ausschreibungen</h3><img class="hero-img" src="assets/img/ausschreibungen_gewerke.jpeg" alt="Ausschreibungen Gewerke"></div>
     </section>
 
@@ -85,17 +95,6 @@
       <div class="grid two" style="margin-top:16px"><div class="card"><h3>Energiebilanz</h3><div class="chart-box"><canvas id="chart-energy"></canvas></div></div><div class="card"><h3>Batterie-Sättigung</h3><div class="chart-box"><canvas id="chart-battery"></canvas></div></div></div>
       <div class="card" style="margin-top:16px"><h3>Energieparameter (editierbar)</h3><div id="energy-inputs-table"></div></div>
       <div class="card" style="margin-top:16px"><h3>Standort/Sonne</h3><img class="hero-img" src="assets/img/sonnenverlauf_standort.png"></div>
-    </section>
-
-    <section id="tab-scenarios" class="tab">
-      <div class="topbar"><div><h2 data-eyebrow="Weichenstellungen">Szenarien &amp; Entscheidungen</h2><p>Energie-Szenarienvergleich und offene Entscheidungen mit Deadline.</p></div></div>
-      <div class="card"><h3>Szenarienvergleich</h3><div id="scenarios-table"></div></div>
-      <div class="card" style="margin-top:16px"><h3>Offene Entscheidungen</h3><div id="decisions-table"></div></div>
-    </section>
-
-    <section id="tab-docs" class="tab">
-      <div class="topbar"><div><h2 data-eyebrow="Register">Dokumente &amp; Quellen</h2><p>Dokumentenregister. Drive-Links werden hier gepflegt und ins Google Sheet geschrieben.</p></div></div>
-      <div class="card"><h3>Dokumentenregister</h3><div id="docs-table"></div></div>
     </section>
   </main>
 </div>
